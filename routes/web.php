@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserDetailController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile',[UserDetailController::class,'index'])->name('profile');
+Route::get('/welcome',function (){
+    return view("welcome");
+});
+Route::post('/save_data',function(Request $request){
+    $imageName = time().'.'.$request->image->extension();  
+    $request->image->move(public_path('images'), $imageName);
+    dd('done');
+})->name("save_data");
