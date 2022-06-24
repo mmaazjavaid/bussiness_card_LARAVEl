@@ -26,7 +26,7 @@
             flex-direction: column;
             align-items:center; 
             width: 400px;
-            background-color: #EBEBEB;
+            background-color: #FFFFFF;
         }
         .form{
             display: flex;
@@ -129,7 +129,7 @@
 <body>
     <div class="profile--container">
         <div class="header--container">
-            <a class="edit_route" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <a class="edit_route" href="{{route("header_form")}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             <div class="profile--picture">
                 <img src="images/profile.jpeg" alt="profile" srcset="">
                 {{-- <label class="label_for_profile" for="file">
@@ -149,11 +149,8 @@
 
             <input type="text" hidden id="about_input">
         </div>
-
-        <div class="save_button_container">
-            <button type="submit">Save Information</button>
-        </div>
         
     </div>
+    
 </body>
 </html>

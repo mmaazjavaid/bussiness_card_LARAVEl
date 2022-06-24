@@ -26,6 +26,9 @@ Route::get('/profile',[UserDetailController::class,'index'])->name('profile');
 Route::get('/welcome',function (){
     return view("welcome");
 });
+Route::get('/header_form',function (){
+return view('header_form');
+})->name('header_form');
 Route::post('/save_data',function(Request $request){
     $imageName = time().'.'.$request->image->extension();  
     $request->image->move(public_path('images'), $imageName);
