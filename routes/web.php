@@ -23,9 +23,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profile',[UserDetailController::class,'index'])->name('profile');
-Route::get('/welcome',function (){
-    return view("welcome");
-});
+
+
+
+
+////////////////////////////////////USER CONTROLLER ROUTES////////////////////////////
+
+
+
+Route::get('/welcome',[UserDetailController::class,'admin_panel'])->name('admin_panel');
 Route::get('/header_form',function (){
 return view('header_form');
 })->name('header_form');

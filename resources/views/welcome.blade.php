@@ -131,7 +131,7 @@
         <div class="header--container">
             <a class="edit_route" href="{{route("header_form")}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             <div class="profile--picture">
-                <img src="images/profile.jpeg" alt="profile" srcset="">
+                <img src="images/{{$userDetails->profileImg}}" alt="profile" srcset="">
                 {{-- <label class="label_for_profile" for="file">
                     <i class="fa fa-camera profile_input_icon" aria-hidden="true"></i>
                     
@@ -141,8 +141,8 @@
             
             </div>
             <div class="header--content">
-                <h3>Muhammad Maaz</h3>
-                <p>Software Engineer</p>
+                <h3>{{$userDetails->name}}</h3>
+                <p>{{$userDetails->job}}</p>
             </div>
         </div>
         <div class="about_section">

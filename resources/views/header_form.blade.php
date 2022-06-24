@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/header_form.js" defer></script>
     <title>Profile Dashboard</title>
     <style>
         *{
@@ -175,26 +176,26 @@
             
             </div>
             <div class="header--content">
-                <h3>Muhammad Maaz</h3>
-                <p>Software Engineer</p>
+                <h3 id="name">Muhammad Maaz</h3>
+                <p id="job">Software Engineer</p>
             </div>
         </div>
 
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
-        <form class="profile_form" action="#">
+        <form class="profile_form" action="{{route("submit_header")}}" method="POST" enctype="multipart/form-data">
             <div class="form_name">
                 <div>Name</div>
-                <input type="text" name="name" value="Muhammad Maaz">
+                <input type="text" class="name_input" id="name_input" name="name" value="Muhammad Maaz">
             </div>
             <div class="form_job title">
                 <div>Job title</div>
-                <input type="text" name="job" value="Software Engineer">
+                <input type="text" class="job_input" id="job_input" name="job" value="Software Engineer">
             </div>
             <div class="form_image">
                 <div>Image</div>
-                <input type="text" name="image_text" value="profile1.jpeg" readonly>
-                <input type="file" name="image" id="file" hidden >
+                <input type="text" class="image_text" id="image_text" name="image_text" value="profile1.jpeg" readonly>
+                <input type="file" class="image_input" name="image" id="image_input" hidden >
             </div>
             <div class="save_button_container">
                 <button type="submit">Save Information</button>
