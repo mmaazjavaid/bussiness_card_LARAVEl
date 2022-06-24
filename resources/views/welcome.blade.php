@@ -36,21 +36,27 @@
         .header--container{
             display: flex;
             width: 95%;
+            position: relative;
             background-color: #000000;
             align-items: center;
-            border-radius: 20px;
-            overflow: hidden;
+            height: 200px;
+            border-radius: 15px;
+            /* overflow: hidden; */
             margin-top: 30px;
             margin-bottom: 30px;
         }
         .header--container div{
             display: flex;
-            width: 50%;
-            
+            height: 100%;
 
         }
         .profile--picture{
             position: relative;
+            width: 45%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            overflow: hidden;
+            background-color: #EBEBEB;
         }
         
         .profile--picture img{
@@ -61,48 +67,93 @@
         .header--content{
             display: flex;
             flex-direction: column;
-            color: #EBEBEB;
+            justify-content: center;
+            width: 55%;
+            
         }
         .header--content h3{
-            margin-left: 10px;
+            margin-left: 15px;
+            font-size: 1.3rem;
+            color: #EBEBEB;
         }
         .header--content p{
-            margin-left: 10px;
+            margin-left: 15px;
+            font-size: 0.7rem;
+            color: #EBEBEB;
         }
         .label_for_profile{
+            display: flex;
             position: absolute;
-            bottom: -30px;
-            z-index: 3;
-            left: 15px;
+            bottom: 10px;
+            right: 10px;
         }
         .profile_input{
         display: none;
+      }
+      .profile_input_icon{
+     cursor: pointer;
+        font-size: 1.5rem;
+      }
+      .save_button_container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+      .save_button_container button{
+        background-color: #F76830;
+        color: #EBEBEB;
+        width: 94%;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 30px;
+      }
+      .edit_route{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #EBEBEB;
+        text-decoration: none;
+        width: 30px;
+        top: -7px;
+        right: -7px;
+        z-index: 2;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #F76830;
       }
     </style>
 </head>
 <body>
     <div class="profile--container">
-        <form class="form" action="{{route("save_data")}}" method="post" enctype="multipart/form-data">
-            @csrf
         <div class="header--container">
+            <a class="edit_route" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             <div class="profile--picture">
                 <img src="images/profile.jpeg" alt="profile" srcset="">
-                <label class="label_for_profile" for="file">
-                    <i class="fa fa-camera" aria-hidden="true"></i>
+                {{-- <label class="label_for_profile" for="file">
+                    <i class="fa fa-camera profile_input_icon" aria-hidden="true"></i>
                     
                     <input class="profile_input" type="file" name="image" id="file" >
-                  </label>
+                </label> --}}
                 
-                {{-- <input type="file" name="image" > --}}
+            
             </div>
             <div class="header--content">
                 <h3>Muhammad Maaz</h3>
                 <p>Software Engineer</p>
             </div>
         </div>
+        <div class="about_section">
 
+            <input type="text" hidden id="about_input">
+        </div>
+
+        <div class="save_button_container">
+            <button type="submit">Save Information</button>
+        </div>
         
-        </form>
     </div>
 </body>
 </html>
