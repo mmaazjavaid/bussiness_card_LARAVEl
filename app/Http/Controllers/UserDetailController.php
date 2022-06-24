@@ -13,14 +13,35 @@ class UserDetailController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+
     public function index(Request $request){
         dd($request->all());
     }
+
+
+    ///////////////////////////////Admin panel/////////////////////////////////////
     public function admin_panel(){
-        $id=Auth::id();
-        $userDetails=UserDetail::where('user_id',$id)->first();
+        $userDetails=UserDetail::where('user_id',Auth::id())->first();
         return view('welcome',[
             "userDetails"=>$userDetails
         ]);
     }
+
+
+    //////////////////////////////Header update//////////////////////////////////
+
+
+    public function update_header(Request $request){
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName); 
+       UserDetail::where('user_id',Auth::id())->update([
+        "profileImg"=>$imageName,
+        "name"=>$request->name,
+        "job"=>$request->job
+       ]);
+       return redirect()->route("admin_panel");
+    }
+
 }

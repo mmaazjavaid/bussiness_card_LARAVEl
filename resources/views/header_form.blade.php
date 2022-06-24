@@ -160,10 +160,10 @@
     </style>
 </head>
 <body>
-    <div class="profile--container">
+    <form class="profile--container" action="{{route("submit_header")}}" method="POST" enctype="multipart/form-data">
         <div class="header--container">
             <div class="profile--picture">
-                <img src="images/profile.jpeg" alt="profile" srcset="">
+                <img src="images/{{$profileImg}}" alt="profile" srcset="">
                 <div class="profile_icon_container">
                     <label class="label_for_profile" for="file">
                         <i class="fa fa-camera profile_input_icon" aria-hidden="true"></i>
@@ -176,35 +176,36 @@
             
             </div>
             <div class="header--content">
-                <h3 id="name">Muhammad Maaz</h3>
-                <p id="job">Software Engineer</p>
+                <h3 id="name">{{$name}}</h3>
+                <p id="job">{{$job}}</p>
             </div>
         </div>
 
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
-        <form class="profile_form" action="{{route("submit_header")}}" method="POST" enctype="multipart/form-data">
+        <div class="profile_form" >
+           @csrf
             <div class="form_name">
                 <div>Name</div>
-                <input type="text" class="name_input" id="name_input" name="name" value="Muhammad Maaz">
+                <input type="text" class="name_input" id="name_input" name="name" value="{{$name}}">
             </div>
             <div class="form_job title">
                 <div>Job title</div>
-                <input type="text" class="job_input" id="job_input" name="job" value="Software Engineer">
+                <input type="text" class="job_input" id="job_input" name="job" value="{{$job}}">
             </div>
             <div class="form_image">
                 <div>Image</div>
                 <input type="text" class="image_text" id="image_text" name="image_text" value="profile1.jpeg" readonly>
-                <input type="file" class="image_input" name="image" id="image_input" hidden >
+            
             </div>
             <div class="save_button_container">
                 <button type="submit">Save Information</button>
             </div>
-        </form>
+        </div>
 
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
         
-    </div>
+    </form>
 </body>
 </html>

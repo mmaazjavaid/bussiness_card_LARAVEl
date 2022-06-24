@@ -129,7 +129,11 @@
 <body>
     <div class="profile--container">
         <div class="header--container">
-            <a class="edit_route" href="{{route("header_form")}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            <a class="edit_route" href="{{route("header_form",[
+                'profileImg'=>$userDetails->profileImg,
+                'name'=>$userDetails->name,
+                'job'=>$userDetails->job
+            ])}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             <div class="profile--picture">
                 <img src="images/{{$userDetails->profileImg}}" alt="profile" srcset="">
                 {{-- <label class="label_for_profile" for="file">

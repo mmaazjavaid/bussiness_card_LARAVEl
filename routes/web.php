@@ -27,14 +27,27 @@ Route::get('/profile',[UserDetailController::class,'index'])->name('profile');
 
 
 
-////////////////////////////////////USER CONTROLLER ROUTES////////////////////////////
+////////////////////////////////////USER CONTROLLER ROUTES/////////////////////////////////////
 
 
 
 Route::get('/welcome',[UserDetailController::class,'admin_panel'])->name('admin_panel');
-Route::get('/header_form',function (){
-return view('header_form');
+
+
+////////////////////////////HEADER FORM/////////////////////////////
+Route::get('/header_form', function (Request $request) {
+    return view('header_form', [
+        'profileImg' => $request->profileImg,
+        'name' => $request->name,
+        'job' => $request->job
+    ]);
 })->name('header_form');
+
+///////////////////////HEADER UPDATE/////////////////////////////
+
+Route::post('/submit_header', [UserDetailController::class,'update_header'])->name("submit_header");
+
+
 Route::post('/save_data',function(Request $request){
     $imageName = time().'.'.$request->image->extension();  
     $request->image->move(public_path('images'), $imageName);
