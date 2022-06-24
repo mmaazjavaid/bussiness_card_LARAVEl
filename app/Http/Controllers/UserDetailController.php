@@ -34,13 +34,21 @@ class UserDetailController extends Controller
 
 
     public function update_header(Request $request){
-        $imageName = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('images'), $imageName); 
-       UserDetail::where('user_id',Auth::id())->update([
-        "profileImg"=>$imageName,
-        "name"=>$request->name,
-        "job"=>$request->job
-       ]);
+        if(isset($request->image)){
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(public_path('images'), $imageName); 
+           UserDetail::where('user_id',Auth::id())->update([
+            "profileImg"=>$imageName,
+            "name"=>$request->name,
+            "job"=>$request->job
+           ]);
+        }else{
+            UserDetail::where('user_id',Auth::id())->update([
+                "name"=>$request->name,
+                "job"=>$request->job
+               ]);
+        }
+        
        return redirect()->route("admin_panel");
     }
    

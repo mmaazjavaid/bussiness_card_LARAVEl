@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\UserDetailController;
+use App\Http\Controllers\UserSocialLinksController;
+use App\Models\SocialLink;
 use App\Models\UserDetail;
+use App\Models\UserSocialLinks;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,3 +64,21 @@ Route::get('/submit_form',function(Request $request){
 ////////////////////ABOUT UPDATE///////////////////////////////
 
 Route::post('/submit_about',[UserDetailController::class,"update_about"])->name('submit_about');
+
+
+//////////////////SOCIAL NETWORK FORM ////////////////////////
+
+Route::get('/social_network_form',function(){
+    $user_links_id=UserSocialLinks::where('user_id',Auth::id())->get();
+    $user_links=[];
+    $all_links=[];
+    foreach ($user_links_id as $user_link_id) {
+        $link=SocialLink::where('id',$user_link_id['social_id'])->first();
+        array_push($user_links,$link);
+    }
+    $all_links=SocialLink::orderBy('id')->get();
+    return view('social_network_form',[
+        "user_links"=>$user_links,
+        "all_links"=>$all_links
+    ]);
+})->name('social_network_form');

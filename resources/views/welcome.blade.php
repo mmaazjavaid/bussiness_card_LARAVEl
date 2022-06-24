@@ -250,7 +250,7 @@
         {{-- //////////////////////////////////////SOCIAL NETWORK START////////////////////////////// --}}
 
         <div class="social_network_container">
-            <a class="social_network_edit" href="">Edit</a>
+            <a class="social_network_edit" href="{{route("social_network_form")}}">Edit</a>
             <div class="social_network_heading"><h4>Social network</h4></div>
             <div class="social_links_container">
                 <div class="social_link">

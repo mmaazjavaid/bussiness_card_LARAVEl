@@ -36,10 +36,10 @@
         width: 100%;
         align-items: center;
       }
-      .profile_form div{
+      .profile_form .form_name{
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 93%;
         margin-bottom: 20px;
       }
       .profile_form div div{
@@ -59,7 +59,7 @@
       .save_button_container button{
         background-color: #F76830;
         color: #EBEBEB;
-        width: 100%;
+        width: 95%;
         padding-top: 7px;
         padding-bottom: 7px;
         border: none;
