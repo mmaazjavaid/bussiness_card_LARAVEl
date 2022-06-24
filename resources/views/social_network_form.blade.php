@@ -51,6 +51,9 @@
             width: 100%;
             justify-content: space-between;
         }
+        .social_link_select_area_heading{
+            position: relative;
+        }
         .social_link_select_area_heading p{
             font-size: 0.9rem;
         }
@@ -109,7 +112,21 @@
         margin-left: 5px;
         font-size: 1rem !important;
       }
-
+      .save_button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-decoration: none;
+        right: 10px;
+        top: 4px;
+        color: white;
+        width: 40px;
+        border: none;
+        font-size: 0.8rem;
+        height: 20px;
+        background-color: #cc3321; 
+      }
     </style>
 </head>
 <body>
