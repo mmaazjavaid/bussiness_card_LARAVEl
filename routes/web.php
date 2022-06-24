@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserDetailController;
+use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,9 +48,15 @@ Route::get('/header_form', function (Request $request) {
 
 Route::post('/submit_header', [UserDetailController::class,'update_header'])->name("submit_header");
 
+/////////////////////About Form/////////////////////////////////
 
-Route::post('/save_data',function(Request $request){
-    $imageName = time().'.'.$request->image->extension();  
-    $request->image->move(public_path('images'), $imageName);
-    dd('done');
-})->name("save_data");
+Route::get('/submit_form',function(Request $request){
+    
+    return view('submit_form',[
+        "about"=>$request->about
+    ]);
+})->name('submit_form');
+
+////////////////////ABOUT UPDATE///////////////////////////////
+
+Route::post('/submit_about',[UserDetailController::class,"update_about"])->name('submit_about');

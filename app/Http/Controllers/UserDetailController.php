@@ -43,5 +43,14 @@ class UserDetailController extends Controller
        ]);
        return redirect()->route("admin_panel");
     }
+   
+    //////////////////////////////About update//////////////////////////////////
+
+    public function update_about(Request $request){
+        UserDetail::where('user_id',Auth::id())->update([
+            "bio"=>$request->about
+        ]);
+        return redirect()->route("admin_panel");
+    }
 
 }

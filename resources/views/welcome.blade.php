@@ -124,10 +124,88 @@
         border-radius: 50%;
         background-color: #F76830;
       }
+      .about_section{
+        display: flex;
+        position: relative;
+        width: 93%;
+        flex-direction: column;
+        margin-top: 5px;
+        border-bottom: 1px solid #c9d1d3;
+      }
+      .About_heading{
+        font-size: 1.2rem;
+        margin-bottom: 5px
+      }
+      .about_section p{
+        font-size: 1rem;
+        padding-bottom: 10px;
+        color: #5b6061;
+      }
+      .about_form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-decoration: none;
+        right: 10px;
+        top: 4px;
+        color: white;
+        width: 40px;
+        font-size: 0.8rem;
+        height: 20px;
+        background-color: #cc3321;
+
+      }
+
+      .social_network_container{
+        display: flex;
+        position: relative;
+        width: 93%;
+        flex-direction: column;
+        margin-top: 10px;
+        border-bottom: 1px solid #c9d1d3;
+      }
+      .social_network_heading h4{
+        font-size: 1.2rem;
+        margin-bottom: 10px
+      }
+      .social_links_container{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        
+      }
+
+      .social_link{
+        width: 18%;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      .social_link img{
+        height: 50px;
+        width: 50px;
+      }
+      .social_network_edit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-decoration: none;
+        right: 10px;
+        top: 4px;
+        color: white;
+        width: 40px;
+        font-size: 0.8rem;
+        height: 20px;
+        background-color: #cc3321; 
+      }
     </style>
 </head>
 <body>
     <div class="profile--container">
+
+
+        {{-- //////////////////////////////////////HEADER CONTAINER////////////////////////////// --}}
         <div class="header--container">
             <a class="edit_route" href="{{route("header_form",[
                 'profileImg'=>$userDetails->profileImg,
@@ -149,11 +227,48 @@
                 <p>{{$userDetails->job}}</p>
             </div>
         </div>
-        <div class="about_section">
 
-            <input type="text" hidden id="about_input">
+        {{-- //////////////////////////////////////HEADER CONTAINER END////////////////////////////// --}}
+
+
+
+
+        {{-- //////////////////////////////////////ABOUT CONTAINER////////////////////////////// --}}
+
+        <div class="about_section">
+            <a class="about_form" href="{{route("submit_form",[
+                "about"=>$userDetails->bio
+            ])}}">Edit</a>
+            <h4 class="About_heading">About</h4>
+            <p>{{$userDetails->bio}}</p>
         </div>
+
+
+        {{-- //////////////////////////////////////ABOUT CONTAINER END////////////////////////////// --}}
         
+
+        {{-- //////////////////////////////////////SOCIAL NETWORK START////////////////////////////// --}}
+
+        <div class="social_network_container">
+            <a class="social_network_edit" href="">Edit</a>
+            <div class="social_network_heading"><h4>Social network</h4></div>
+            <div class="social_links_container">
+                <div class="social_link">
+                    <img src="images/social/instagram.png" >
+                </div>
+                <div class="social_link">
+                    <img src="images/social/twitter.png" >
+                </div>
+                <div class="social_link">
+                    <img src="images/social/line.png" >
+                </div>
+            </div>
+        </div>
+
+
+        {{-- //////////////////////////////////////SOCIAL NETWORK END////////////////////////////// --}}
+
+
     </div>
     
 </body>
