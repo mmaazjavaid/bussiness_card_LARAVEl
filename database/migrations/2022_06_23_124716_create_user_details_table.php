@@ -17,7 +17,7 @@ class CreateUserDetailsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('email');
-            $table->string('bio')->default(' ')->nullable();
+            $table->string('bio','500')->default(' ')->nullable();
             $table->string('dob')->default(' ')->nullable();
             $table->string('address')->default(' ')->nullable();
             $table->string('gender')->default(' ')->nullable();

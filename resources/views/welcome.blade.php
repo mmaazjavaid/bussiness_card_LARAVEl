@@ -137,7 +137,7 @@
         margin-bottom: 5px
       }
       .about_section p{
-        font-size: 1rem;
+        font-size: 0.7rem;
         padding-bottom: 10px;
         color: #5b6061;
       }
@@ -151,9 +151,9 @@
         top: 4px;
         color: white;
         width: 40px;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         height: 20px;
-        background-color: #cc3321;
+        background-color: #F76830;
 
       }
 
@@ -177,7 +177,7 @@
       }
 
       .social_link{
-        width: 18%;
+        width: 16%;
         margin-right: 10px;
         margin-bottom: 10px;
       }
@@ -195,9 +195,9 @@
         top: 4px;
         color: white;
         width: 40px;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         height: 20px;
-        background-color: #cc3321; 
+        background-color: #F76830; 
       }
     </style>
 </head>
@@ -253,15 +253,11 @@
             <a class="social_network_edit" href="{{route("social_network_form")}}">Edit</a>
             <div class="social_network_heading"><h4>Social network</h4></div>
             <div class="social_links_container">
-                <div class="social_link">
-                    <img src="images/social/instagram.png" >
-                </div>
-                <div class="social_link">
-                    <img src="images/social/twitter.png" >
-                </div>
-                <div class="social_link">
-                    <img src="images/social/line.png" >
-                </div>
+              @foreach ($links as $link)
+              <a target="_blank" href="{{$userlinks[$loop->index]["link_url"]}}" class="social_link">
+                <img src="images/social/{{$link->link_image}}" >
+              </a>
+              @endforeach  
             </div>
         </div>
 

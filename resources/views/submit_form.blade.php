@@ -40,16 +40,16 @@
         display: flex;
         flex-direction: column;
         width: 93%;
-        margin-bottom: 20px;
+        /* margin-bottom: 10px; */
       }
       .profile_form div div{
         color: #9ba0a1;
         margin-bottom: 0px;
       }
-      .profile_form div input{
+      .profile_form div textarea{
         border: none;
         outline: none;
-        border-bottom: 1px solid #bfc3c4;
+        border: 1px solid #bfc3c4;
       }
       .save_button_container{
         display: flex;
@@ -79,7 +79,7 @@
            @csrf
             <div class="form_name">
                 <div>About</div>
-                <input type="text" class="about_input" id="about_input" name="about" value="{{$about}}">
+                <textarea type="text" class="about_input" id="about_input" name="about" value="{{$about}}"></textarea>
             </div>
             <div class="save_button_container">
                 <button type="submit">Save Information</button>

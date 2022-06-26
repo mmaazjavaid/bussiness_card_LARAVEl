@@ -72,13 +72,18 @@ Route::get('/social_network_form',function(){
     $user_links_id=UserSocialLinks::where('user_id',Auth::id())->get();
     $user_links=[];
     $all_links=[];
-    foreach ($user_links_id as $user_link_id) {
-        $link=SocialLink::where('id',$user_link_id['social_id'])->first();
-        array_push($user_links,$link);
-    }
+    // foreach ($user_links_id as $user_link_id) {
+    //     $link=SocialLink::where('id',$user_link_id['social_id'])->first();
+    //     array_push($user_links,$link);
+    // }
     $all_links=SocialLink::orderBy('id')->get();
     return view('social_network_form',[
-        "user_links"=>$user_links,
+        "user_links"=>$user_links_id,
         "all_links"=>$all_links
     ]);
 })->name('social_network_form');
+
+
+///////////////////////SAVE SOCIAL NETWORK///////////////////////
+
+Route::get('/submit_about',[UserSocialLinksController::class,'store_link']);

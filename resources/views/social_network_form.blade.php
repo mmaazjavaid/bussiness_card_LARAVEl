@@ -139,16 +139,16 @@
                     <p>Social network</p>
                 </div>
                 <div class="social_link_input_area">
-                    <select  name="link_name" id="">
+                    <select  name="link_name" id="" aria-readonly="true">
                         @foreach ($all_links as $all_link)
-                        @if ($all_link->id==$user_link->id)
+                        @if ($all_link->id==$user_link->social_id)
                         <option selected value="{{$all_link->id}}">{{$all_link->link_name}}</option>    
                         @else
                         <option value="{{$all_link->id}}">{{$all_link->link_name}}</option>    
                         @endif   
                         @endforeach   
                     </select>  
-                    <input type="text" name="link_url" placeholder="link url">
+                    <input readonly type="text" name="link_url" value="{{$user_link->link_url}}" placeholder="link url">
                 </div>
             </div>  
             @endforeach

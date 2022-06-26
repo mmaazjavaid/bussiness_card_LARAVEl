@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SocialLink;
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Models\UserSocialLinks;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,8 +26,16 @@ class UserDetailController extends Controller
     ///////////////////////////////Admin panel/////////////////////////////////////
     public function admin_panel(){
         $userDetails=UserDetail::where('user_id',Auth::id())->first();
+        $userlinks=UserSocialLinks::where('user_id',Auth::id())->get();
+        $links=[];
+        foreach ($userlinks as $userlink) {
+            $link=SocialLink::where('id',$userlink->social_id)->first();
+            array_push($links,$link);
+        }
         return view('welcome',[
-            "userDetails"=>$userDetails
+            "userDetails"=>$userDetails,
+            "userlinks"=>$userlinks,
+            "links"=>$links
         ]);
     }
 

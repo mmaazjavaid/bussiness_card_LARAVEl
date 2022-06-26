@@ -42,8 +42,8 @@ const arr=[
 function addNew() {
     const form = document.createElement("form");
     form.setAttribute("class", "social_link_select_area");
-    form.setAttribute("action", "{{route('submit_about')}}");
-    form.setAttribute("method", "POST");
+    form.setAttribute("action", "/submit_about");
+    form.setAttribute("method", "GET");
     const div_1 = document.createElement("div");
     div_1.setAttribute("class", "social_link_select_area");
 
@@ -63,6 +63,7 @@ function addNew() {
     div_3.setAttribute("class", "social_link_input_area");
 
     const select = document.createElement("select");
+    select.setAttribute("name", "link_id");
     select.setAttribute("class", "social_link_input_area");
 
     const input = document.createElement("input");

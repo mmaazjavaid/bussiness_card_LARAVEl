@@ -17,7 +17,7 @@ class CreateUserSocialLinksTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('social_id');
-            $table->string('link_url');
+            $table->string('link_url')->default(' ')->nullable();
             $table->timestamps();
         });
     }
