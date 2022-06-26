@@ -127,11 +127,45 @@
         height: 20px;
         background-color: #cc3321; 
       }
+      .logo--container{
+        display: flex;
+        align-items: center;
+        width: 95%;
+        margin-top: 5px;
+        justify-content: space-between;
+
+      }
+      
+      .logo img{
+        margin-left: 5px;
+        width: 70px;
+        height: 70px;
+      }
+      .hamburger--menu{
+        display: flex;
+        flex-direction: column;
+        height: 25px;
+        margin-right: 15px;
+        justify-content: space-between;
+
+      }
+      .hamburger--menu div{
+        width: 25px;
+        border-top:2px solid #F76830;
+      }
     </style>
 </head>
 <body>
 
     <div class="profile--container" id="profile--container">
+        <div class="logo--container">
+            <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
+            <div class="hamburger--menu">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         <div class="social_link_form_container" id="social_link_form_container">
             @foreach ($user_links as $user_link)
             <div class="social_link_select_area">

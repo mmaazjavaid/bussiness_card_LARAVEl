@@ -30,7 +30,7 @@
         }
         .profile_form{
         display: flex;
-        margin-top: 30px;
+        margin-top: 10px;
         margin-bottom: 30px;
         flex-direction: column;
         width: 100%;
@@ -67,12 +67,46 @@
         margin-top: 30px;
         margin-bottom: 30px;
       }
+      .logo--container{
+        display: flex;
+        align-items: center;
+        width: 95%;
+        margin-top: 5px;
+        justify-content: space-between;
+
+      }
+      
+      .logo img{
+        /* margin-left: 5px; */
+        width: 70px;
+        height: 70px;
+      }
+      .hamburger--menu{
+        display: flex;
+        flex-direction: column;
+        height: 25px;
+        margin-right: 10px;
+        justify-content: space-between;
+
+      }
+      .hamburger--menu div{
+        width: 25px;
+        border-top:2px solid #F76830;
+      }
     </style>
 </head>
 <body>
     <form class="profile--container" action="{{route("submit_about")}}" method="POST" enctype="multipart/form-data">
         
 
+      <div class="logo--container">
+        <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
+        <div class="hamburger--menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
         <div class="profile_form" >
