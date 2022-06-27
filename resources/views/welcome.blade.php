@@ -138,6 +138,7 @@
       }
       .about_section p{
         font-size: 0.7rem;
+        word-break: break-all;
         padding-bottom: 10px;
         color: #5b6061;
       }
@@ -147,7 +148,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 10px;
+        right: 0px;
         top: 4px;
         color: white;
         width: 40px;
@@ -191,7 +192,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 10px;
+        right: 0px;
         top: 4px;
         color: white;
         width: 40px;

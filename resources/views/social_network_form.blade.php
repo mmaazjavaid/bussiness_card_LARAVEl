@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Social Link Form</title>
     {{-- <script src="js/add_social.js" defer></script> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -59,19 +60,20 @@
         }
         .social_link_input_area{
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             width: 100%;
         }
         .social_link_input_area select{
-            width: 25%;
-            height: 40px;
+            width: 20%;
+            height: 30px;
             border: none;
+            margin-right: 10px;
             outline: none;
             border-bottom: 1px solid #bfc3c4;
         }
         .social_link_input_area input{
-            width: 70%;
-            height: 40px;
+            width: 58%;
+            height: 30px;
             border: none;
             outline: none;
             border-bottom: 1px solid #bfc3c4;
@@ -153,6 +155,42 @@
         width: 25px;
         border-top:2px solid #F76830;
       }
+      .delete_button{
+        display: flex;
+        position: absolute;
+        right: 35px;
+        top: 10px;
+      }
+      .edit_button{
+        display: flex;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+      }
+      /* .delete_button i,.edit_button i{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-decoration: none;
+        right: 10px;
+        border: none;
+        top: 4px;
+        color: white;
+        width: 40px;
+        font-size: 0.7rem;
+        height: 20px;
+        background-color: #F76830; 
+      } */
+      .delete_button i{
+        
+        color: #cc3321;
+        font-size: 1.3rem;
+      }
+      .edit_button i{
+        color: rgb(41, 190, 41);
+        font-size: 1.3rem;
+      }
     </style>
 </head>
 <body>
@@ -170,7 +208,9 @@
             @foreach ($user_links as $user_link)
             <div class="social_link_select_area">
                 <div class="social_link_select_area_heading" id="social_link_select_area_heading">
-                    <p>Social network</p>
+                    {{-- <p>Social network</p> --}}
+                    <a class="delete_button"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                    <a class="edit_button"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
                 </div>
                 <div class="social_link_input_area">
                     <select  name="link_name" id="" aria-readonly="true">
