@@ -400,49 +400,24 @@
           <div class="custom_link_heading"><h4>Custom links</h4></div>
           <div class="custom_all_links">
             
+           @foreach ($customlinks as $customlink)
 
-            <a target="_blank" href="#" class="custom_link">
-              <img src="images/1656071750.jpg" >
-              <div class="custom_link_content">
-                <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
-                <div class="custom_link_button">
-                  <div>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  
+           <a href="/delete_custom_link"></a>
+
+           <a target="_blank" href="{{$customlink->link_url}}" class="custom_link">
+            <img src="images/{{$customlink->image}}" >
+            <div class="custom_link_content">
+              <div class="custom_link_tagline"><p>{{$customlink->title}}</p></div>
+              <div class="custom_link_button">
+                <div>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </div>
+                
               </div>
-              
-            </a>
-
-            <a target="_blank" href="#" class="custom_link">
-              <img src="images/profile.jpeg" >
-              <div class="custom_link_content">
-                <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
-                <div class="custom_link_button">
-                  <div>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  
-                </div>
-              </div>
-              
-            </a>
-
-
-            <a target="_blank" href="#" class="custom_link">
-              <img src="images/1656071750.jpg" >
-              <div class="custom_link_content">
-                <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
-                <div class="custom_link_button">
-                  <div>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  
-                </div>
-              </div>
-              
-            </a>
+            </div>
+            
+          </a>
+           @endforeach
 
           </div>
          </div>

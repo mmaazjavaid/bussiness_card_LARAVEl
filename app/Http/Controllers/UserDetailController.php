@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CustomLink;
 use App\Models\SocialLink;
 use App\Models\User;
 use App\Models\UserDetail;
@@ -27,6 +28,7 @@ class UserDetailController extends Controller
     public function admin_panel(){
         $userDetails=UserDetail::where('user_id',Auth::id())->first();
         $userlinks=UserSocialLinks::where('user_id',Auth::id())->get();
+        $customlinks=CustomLink::where('user_id',Auth::id())->get();
         $links=[];
         foreach ($userlinks as $userlink) {
             $link=SocialLink::where('id',$userlink->social_id)->first();
@@ -35,6 +37,7 @@ class UserDetailController extends Controller
         return view('welcome',[
             "userDetails"=>$userDetails,
             "userlinks"=>$userlinks,
+            "customlinks"=>$customlinks,
             "links"=>$links
         ]);
     }

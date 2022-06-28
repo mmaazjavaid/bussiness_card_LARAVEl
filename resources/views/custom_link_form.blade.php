@@ -112,7 +112,7 @@
     </style>
 </head>
 <body>
-    <form class="profile--container" action="#" method="POST" enctype="multipart/form-data">
+    <form class="profile--container" action="{{route("custom_link_submit")}}" method="POST" enctype="multipart/form-data">
         
 
         <div class="logo--container">
@@ -133,19 +133,19 @@
             @csrf
              <div class="form_name">
                  <div>Title</div>
-                 <input type="text" class="name_input" id="name_input" name="title" >
+                 <input required  type="text" class="name_input" id="name_input" name="title" >
              </div>
              <div class="form_job title">
                  <div>Link url</div>
-                 <input type="text" class="job_input" id="job_input" name="link_url" >
+                 <input required type="text" class="job_input" id="job_input" name="link_url" >
              </div>
              <div class="form_image">
                  <div>Image</div>
-                 <input type="file" class="image_text" id="image_text" name="image_text" value="profile1.jpeg" readonly>
+                 <input required type="file" class="image_text" id="image_text" name="image" value="profile1.jpeg">
              
              </div>
              <div class="save_button_container">
-                 <button type="submit">Save Information</button>
+                 <button type="submit">Save </button>
              </div>
          </div>
 

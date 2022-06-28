@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomLinkController;
 use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\UserSocialLinksController;
 use App\Models\SocialLink;
@@ -108,3 +109,8 @@ Route::get('/update_link',[UserSocialLinksController::class,'update_social'])->n
 Route::get('/custom_network_form',function(){
     return view('custom_link_form');
 })->name('custom_network_form');
+
+////////////////////////////Custom link submit////////////////////////////
+
+
+Route::post('/custom_link_submit',[CustomLinkController::class,"create_link"])->name('custom_link_submit');
