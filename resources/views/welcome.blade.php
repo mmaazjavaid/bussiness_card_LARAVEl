@@ -233,6 +233,65 @@
         width: 25px;
         border-top:2px solid #F76830;
       }
+      .custom_links_container{
+        display: flex;
+        position: relative;
+        width: 93%;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #c9d1d3;
+      }
+      .custom_link_heading h4{
+        font-size: 1.2rem;
+      }
+      .custom_all_links{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+      .custom_link{
+        display: flex;
+        width: 100%;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        text-decoration: none;
+        color: #000000;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 1px solid #dde5e7;
+      }
+      .custom_link img{
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+      }
+      .custom_link_tagline{
+        display: flex;
+        align-items: center;
+        width:75%;
+        
+      }
+      .custom_link_button{
+        display: flex;
+        width: 20%;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .custom_link_button div i{
+        display: flex;
+        color: #F76830;
+        margin-right: 15px;
+      }
+       .custom_link_tagline p{
+        margin-left: 15px;
+        height: 90%;
+        font-weight: 500;
+        font-size: 1rem;
+        
+      }
     </style>
 </head>
 <body>
@@ -306,6 +365,50 @@
 
 
         {{-- //////////////////////////////////////SOCIAL NETWORK END////////////////////////////// --}}
+        
+
+         {{-- //////////////////////////////////////Custom link////////////////////////////// --}}
+         <div class="custom_links_container">
+          {{-- <a class="custom_link_edit" href="#">Edit</a> --}}
+          <div class="custom_link_heading"><h4>Custom links</h4></div>
+          <div class="custom_all_links">
+            <a target="_blank" href="#" class="custom_link">
+              <img src="images/profile.jpeg" >
+              <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
+              <div class="custom_link_button">
+                <div>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+                
+              </div>
+            </a>
+
+            <a target="_blank" href="#" class="custom_link">
+              <img src="images/1656071750.jpg" >
+              <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
+              <div class="custom_link_button">
+                <div>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+                
+              </div>
+            </a>
+
+
+            <a target="_blank" href="#" class="custom_link">
+              <img src="images/profile.jpeg" >
+              <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
+              <div class="custom_link_button">
+                <div>
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+                
+              </div>
+            </a>
+
+          </div>
+         </div>
+          {{-- //////////////////////////////////////Custom link END////////////////////////////// --}}
 
 
     </div>
