@@ -258,21 +258,31 @@
       .custom_link{
         display: flex;
         width: 100%;
+        height: 50px;
         margin-top: 6px;
         margin-bottom: 6px;
         text-decoration: none;
         color: #000000;
         justify-content: flex-start;
         align-items: center;
-        border-bottom: 1px solid #dde5e7;
+        
       }
       .custom_link img{
         border-radius: 10px;
         width: 50px;
         height: 50px;
       }
+      .custom_link_content{
+        display: flex;
+        margin-left: 15px;
+        align-items: center;
+        border-bottom: 1px solid #dde5e7;
+        height: 100%;
+        width: 85%
+      }
       .custom_link_tagline{
         display: flex;
+        
         align-items: center;
         width:75%;
         
@@ -289,8 +299,8 @@
         margin-right: 15px;
       }
        .custom_link_tagline p{
-        margin-left: 15px;
-        height: 90%;
+        
+        
         font-weight: 600;
         font-size: 1rem;
         
@@ -375,38 +385,49 @@
           {{-- <a class="custom_link_edit" href="#">Edit</a> --}}
           <div class="custom_link_heading"><h4>Custom links</h4></div>
           <div class="custom_all_links">
-            <a target="_blank" href="#" class="custom_link">
-              <img src="images/profile.jpeg" >
-              <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
-              <div class="custom_link_button">
-                <div>
-                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </div>
-                
-              </div>
-            </a>
+            
 
             <a target="_blank" href="#" class="custom_link">
               <img src="images/1656071750.jpg" >
-              <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
-              <div class="custom_link_button">
-                <div>
-                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              <div class="custom_link_content">
+                <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
+                <div class="custom_link_button">
+                  <div>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  </div>
+                  
                 </div>
-                
               </div>
+              
+            </a>
+
+            <a target="_blank" href="#" class="custom_link">
+              <img src="images/profile.jpeg" >
+              <div class="custom_link_content">
+                <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
+                <div class="custom_link_button">
+                  <div>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  </div>
+                  
+                </div>
+              </div>
+              
             </a>
 
 
             <a target="_blank" href="#" class="custom_link">
-              <img src="images/profile.jpeg" >
-              <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
-              <div class="custom_link_button">
-                <div>
-                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              <img src="images/1656071750.jpg" >
+              <div class="custom_link_content">
+                <div class="custom_link_tagline"><p>heres's my work ..!</p></div>
+                <div class="custom_link_button">
+                  <div>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  </div>
+                  
                 </div>
-                
               </div>
+              
             </a>
 
           </div>
