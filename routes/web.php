@@ -36,7 +36,7 @@ Route::get('/profile',[UserDetailController::class,'index'])->name('profile');
 
 
 
-Route::get('/welcome',[UserDetailController::class,'admin_panel'])->name('admin_panel');
+Route::get('/welcome',[UserDetailController::class,'admin_panel'])->name('admin_panel')->name('admin.panel');
 
 
 ////////////////////////////HEADER FORM/////////////////////////////

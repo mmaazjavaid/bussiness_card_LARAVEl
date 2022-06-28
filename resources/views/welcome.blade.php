@@ -204,7 +204,13 @@
       .logo--container{
         display: flex;
         align-items: center;
-        width: 95%;
+        width: 100%;
+        position: sticky;
+        
+        top: 0%;
+        z-index: 9;
+        background-color: #FFFFFF;
+
         margin-top: 5px;
         justify-content: space-between;
 

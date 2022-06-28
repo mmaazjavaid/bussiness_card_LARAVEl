@@ -52,6 +52,7 @@
             flex-direction: column;
             align-items: center;
             width: 95%;
+            margin-top: 5px;
         }
         .social_link_select_area{
             margin-top: 10px;
@@ -80,15 +81,17 @@
             margin-right: 10px ;
             outline: none ;
             border-bottom: 1px solid #bfc3c4 ;
+            font-size: 0.8rem;
         }
         .social_link_input_area select option{
           background: #bfc3c4;
+          font-size: 0.8rem;
         }
         .social_link_input_area input{
             width: 58%;
             height: 30px;
             border: none;
-            
+            font-size: 0.8rem;
             outline: none;
             border-bottom: 1px solid #bfc3c4;
         }
@@ -146,7 +149,12 @@
       .logo--container{
         display: flex;
         align-items: center;
-        width: 95%;
+        width: 100%;
+        position: sticky;
+        
+        top: 0%;
+        z-index: 9;
+        background-color: #FFFFFF;
         margin-top: 5px;
         justify-content: space-between;
 
@@ -218,7 +226,7 @@
 
     <div class="profile--container" id="profile--container">
         <div class="logo--container">
-            <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
+            <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
             <div class="hamburger--menu">
               <div id="loaderIcon" class="spinner-border text-success" style="display:none; height:20px; width:20px;" role="status">
                 <span class="sr-only">Loading...</span>
