@@ -18,6 +18,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
   
     <!-- Load our React component. -->
 
@@ -68,17 +73,22 @@
             width: 100%;
         }
         .social_link_input_area select{
-            width: 20%;
-            height: 30px;
-            border: none;
-            margin-right: 10px;
-            outline: none;
-            border-bottom: 1px solid #bfc3c4;
+          display: flex;
+            width: 20% ;
+            height: 30px ;
+            border: none ;
+            margin-right: 10px ;
+            outline: none ;
+            border-bottom: 1px solid #bfc3c4 ;
+        }
+        .social_link_input_area select option{
+          background: #bfc3c4;
         }
         .social_link_input_area input{
             width: 58%;
             height: 30px;
             border: none;
+            
             outline: none;
             border-bottom: 1px solid #bfc3c4;
         }
@@ -160,12 +170,14 @@
         position: absolute;
         right: 35px;
         top: 10px;
+        text-decoration: none;
       }
       .edit_button{
         display: flex;
         position: absolute;
         right: 5px;
         top: 10px;
+        text-decoration: none;
       }
       /* .delete_button i,.edit_button i{
         display: flex;
@@ -191,6 +203,13 @@
         color: rgb(41, 190, 41);
         font-size: 1.3rem;
       }
+
+      
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -209,11 +228,11 @@
             <div class="social_link_select_area">
                 <div class="social_link_select_area_heading" id="social_link_select_area_heading">
                     {{-- <p>Social network</p> --}}
-                    <a class="delete_button"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+                    <a href="{{route('delete-social',["social_id"=>$user_link->social_id])}}" class="delete_button"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
                     <a class="edit_button"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
                 </div>
                 <div class="social_link_input_area">
-                    <select  name="link_name" id="" aria-readonly="true">
+                    <select   name="link_name" id="link_name" aria-readonly="true">
                         @foreach ($all_links as $all_link)
                         @if ($all_link->id==$user_link->social_id)
                         <option selected value="{{$all_link->id}}">{{$all_link->link_name}}</option>    
@@ -238,14 +257,20 @@
 
     
 <script>
-  const inputs=q
-$('#link_url_input').focus(function () {
+
+  var input_fields=document.querySelectorAll(".link_url_input");
+for (let index = 0; index < input_fields.length; index++) {
+  $(input_fields[index]).focus(function () {
     $('#loaderIcon').show();
-    
 })
-$('#link_url_input').focusout(()=>{
+}
+
+
+for (let index = 0; index < input_fields.length; index++) {
+  $(input_fields[index]).focusout(()=>{
   $('#loaderIcon').hide();
 })
+}
     // $.ajax({
     //     type: "GET",
     //     url: 'https://api.joind.in/v2.1/talks/10889',

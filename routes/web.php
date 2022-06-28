@@ -87,3 +87,9 @@ Route::get('/social_network_form',function(){
 ///////////////////////SAVE SOCIAL NETWORK///////////////////////
 
 Route::get('/submit_about',[UserSocialLinksController::class,'store_link']);
+
+
+///////////////////////DELETE SOCIAL/////////////////////////////
+
+
+Route::get('/delete-social',[UserSocialLinksController::class,'delete_link'])->name('delete-social');

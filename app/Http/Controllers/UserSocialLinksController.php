@@ -20,4 +20,8 @@ class UserSocialLinksController extends Controller
         ]);
         return redirect()->route('social_network_form');
     }
+    public function delete_link(Request $request){
+        UserSocialLinks::where('social_id',$request->social_id)->delete();
+        return redirect()->route('social_network_form');
+    }
 }
