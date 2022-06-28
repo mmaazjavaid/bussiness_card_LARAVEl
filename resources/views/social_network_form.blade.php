@@ -213,7 +213,10 @@
         color: rgb(41, 190, 41);
         font-size: 1.3rem;
       }
-
+      .tick_icon_load{
+        font-size: 30px;
+        color: rgb(41, 190, 41);
+      }
       
 
 
@@ -229,7 +232,11 @@
             <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
             <div class="hamburger--menu">
               <div id="loaderIcon" class="spinner-border text-success" style="display:none; height:20px; width:20px;" role="status">
+
                 <span class="sr-only">Loading...</span>
+            </div>
+            <div id="tick_icon" style="display:none;">
+              <i class="fa fa-check-circle tick_icon_load" aria-hidden="true"></i>
             </div>
             </div>
           </div>
@@ -274,6 +281,7 @@
 for (let index = 0; index < input_fields.length; index++) {
   $(input_fields[index]).focus(function () {
     $('#loaderIcon').show();
+    $('#tick_icon').hide();
 })
 }
 
@@ -281,6 +289,7 @@ for (let index = 0; index < input_fields.length; index++) {
 for (let index = 0; index < input_fields.length; index++) {
   $(input_fields[index]).focusout(()=>{
   $('#loaderIcon').hide();
+  $('#tick_icon').show();
 })
 }
     // $.ajax({
