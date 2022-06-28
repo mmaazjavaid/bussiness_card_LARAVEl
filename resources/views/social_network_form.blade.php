@@ -14,6 +14,10 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
     <!-- Load our React component. -->
 
@@ -144,17 +148,13 @@
         height: 70px;
       }
       .hamburger--menu{
-        display: flex;
-        flex-direction: column;
-        height: 25px;
         margin-right: 15px;
-        justify-content: space-between;
 
       }
-      .hamburger--menu div{
+      /* .hamburger--menu div{
         width: 25px;
         border-top:2px solid #F76830;
-      }
+      } */
       .delete_button{
         display: flex;
         position: absolute;
@@ -199,9 +199,9 @@
         <div class="logo--container">
             <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
             <div class="hamburger--menu">
-              <div></div>
-              <div></div>
-              <div></div>
+              <div id="loaderIcon" class="spinner-border text-success" style="display:none; height:20px; width:20px;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
             </div>
           </div>
         <div class="social_link_form_container" id="social_link_form_container">
@@ -222,7 +222,7 @@
                         @endif   
                         @endforeach   
                     </select>  
-                    <input readonly type="text" name="link_url" value="{{$user_link->link_url}}" placeholder="link url">
+                    <input id="link_url_input" class="link_url_input"  type="text" name="link_url" value="{{$user_link->link_url}}" placeholder="link url">
                 </div>
             </div>  
             @endforeach
@@ -233,8 +233,33 @@
                 <button type="submit">Save Information</button>
             </div>
         </div>
+        
     </div>
 
+    
+<script>
+  const inputs=q
+$('#link_url_input').focus(function () {
+    $('#loaderIcon').show();
+    
+})
+$('#link_url_input').focusout(()=>{
+  $('#loaderIcon').hide();
+})
+    // $.ajax({
+    //     type: "GET",
+    //     url: 'https://api.joind.in/v2.1/talks/10889',
+    //     data: {
+    //         format: 'json'
+    //     },
+    //     success: function(response){
+    //        console.log(response);
+    //     },
+    //     complete: function(){
+    //         $('#loaderIcon').hide();
+    //     }
+    // });
+</script>
 
     
 </body>
