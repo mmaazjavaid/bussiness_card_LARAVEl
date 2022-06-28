@@ -239,7 +239,7 @@
     <div class="profile--container">
 
       <div class="logo--container">
-        <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
+        <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
         <div class="hamburger--menu">
           <div></div>
           <div></div>
