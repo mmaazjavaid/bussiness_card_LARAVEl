@@ -36,7 +36,7 @@ Route::get('/profile',[UserDetailController::class,'index'])->name('profile');
 
 
 
-Route::get('/welcome',[UserDetailController::class,'admin_panel'])->name('admin_panel')->name('admin.panel');
+Route::get('/welcome',[UserDetailController::class,'admin_panel'])->name('admin_panel');
 
 
 ////////////////////////////HEADER FORM/////////////////////////////
@@ -100,3 +100,11 @@ Route::get('/delete-social',[UserSocialLinksController::class,'delete_link'])->n
 
 
 Route::get('/update_link',[UserSocialLinksController::class,'update_social'])->name('update_link');
+
+
+
+//////////////////////////////CUSTOM FORM//////////////////////////////////
+
+Route::get('/custom_network_form',function(){
+    return view('custom_link_form');
+})->name('custom_network_form');

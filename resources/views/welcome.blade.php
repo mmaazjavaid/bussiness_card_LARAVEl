@@ -91,7 +91,7 @@
         display: none;
       }
       .profile_input_icon{
-     cursor: pointer;
+        cursor: pointer;
         font-size: 1.5rem;
       }
       .save_button_container{
@@ -305,6 +305,20 @@
         font-size: 1rem;
         
       }
+      .custom_link_edit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        text-decoration: none;
+        right: 0px;
+        top: 4px;
+        color: white;
+        width: 40px;
+        font-size: 0.7rem;
+        height: 20px;
+        background-color: #F76830; 
+      }
     </style>
 </head>
 <body>
@@ -382,7 +396,7 @@
 
          {{-- //////////////////////////////////////Custom link////////////////////////////// --}}
          <div class="custom_links_container">
-          {{-- <a class="custom_link_edit" href="#">Edit</a> --}}
+          <a class="custom_link_edit" href="{{route('custom_network_form')}}">Edit</a>
           <div class="custom_link_heading"><h4>Custom links</h4></div>
           <div class="custom_all_links">
             
