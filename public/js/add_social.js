@@ -70,7 +70,7 @@ function addNew() {
     input.setAttribute("type", "text");
     input.setAttribute("name", "link_url");
     input.setAttribute("placeholder", "link url")
-
+    input.setAttribute("required", "");
     arr.map((element)=>{
         var option = document.createElement("option");
         option.value = element.id;

@@ -93,3 +93,10 @@ Route::get('/submit_about',[UserSocialLinksController::class,'store_link']);
 
 
 Route::get('/delete-social',[UserSocialLinksController::class,'delete_link'])->name('delete-social');
+
+
+
+//////////////////////UPDATE SOCIAL ///////////////////////////////
+
+
+Route::get('/update_link',[UserSocialLinksController::class,'update_social'])->name('update_link');

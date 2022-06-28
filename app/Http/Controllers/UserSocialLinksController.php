@@ -24,4 +24,14 @@ class UserSocialLinksController extends Controller
         UserSocialLinks::where('social_id',$request->social_id)->delete();
         return redirect()->route('social_network_form');
     }
+    public function update_social(Request $request){
+        UserSocialLinks::where([
+            ["user_id","=",Auth::id()],
+            ["social_id","=",$request->prev_social_id]
+        ])->update([
+            "social_id"=>$request->link_name,
+            "link_url"=>$request->link_url
+        ]);
+        return redirect()->route('social_network_form');
+    }
 }

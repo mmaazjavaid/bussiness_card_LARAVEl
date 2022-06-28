@@ -177,6 +177,8 @@
         position: absolute;
         right: 5px;
         top: 10px;
+        background: none;
+        border: none;
         text-decoration: none;
       }
       /* .delete_button i,.edit_button i{
@@ -225,14 +227,16 @@
           </div>
         <div class="social_link_form_container" id="social_link_form_container">
             @foreach ($user_links as $user_link)
-            <div class="social_link_select_area">
+            
+            <form action="{{route('update_link')}}"  method="GET" class="social_link_select_area">
                 <div class="social_link_select_area_heading" id="social_link_select_area_heading">
                     {{-- <p>Social network</p> --}}
+                    <input name="prev_social_id" type="text" value="{{$user_link->social_id}}" hidden>
                     <a href="{{route('delete-social',["social_id"=>$user_link->social_id])}}" class="delete_button"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
-                    <a class="edit_button"><i class="fa fa-check-circle" aria-hidden="true"></i></a>
+                    <button type="submit"  class="edit_button"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
                 </div>
                 <div class="social_link_input_area">
-                    <select   name="link_name" id="link_name" aria-readonly="true">
+                    <select name="link_name" id="link_name" aria-readonly="true">
                         @foreach ($all_links as $all_link)
                         @if ($all_link->id==$user_link->social_id)
                         <option selected value="{{$all_link->id}}">{{$all_link->link_name}}</option>    
@@ -241,9 +245,9 @@
                         @endif   
                         @endforeach   
                     </select>  
-                    <input id="link_url_input" class="link_url_input"  type="text" name="link_url" value="{{$user_link->link_url}}" placeholder="link url">
+                    <input required id="link_url_input" class="link_url_input"  type="text" name="link_url" value="{{$user_link->link_url}}" placeholder="link url">
                 </div>
-            </div>  
+              </form>  
             @endforeach
             <div class="add_new_button" id="add_new_button">
                 <button onclick="addNew()"> + <h5>Add social network</h5></button>
