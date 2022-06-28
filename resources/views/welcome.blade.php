@@ -133,7 +133,8 @@
         border-bottom: 1px solid #c9d1d3;
       }
       .About_heading{
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-weight: 600;
         margin-bottom: 5px
       }
       .about_section p{
@@ -167,7 +168,8 @@
         border-bottom: 1px solid #c9d1d3;
       }
       .social_network_heading h4{
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-weight: 600;
         margin-bottom: 10px
       }
       .social_links_container{
@@ -243,7 +245,8 @@
         border-bottom: 1px solid #c9d1d3;
       }
       .custom_link_heading h4{
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-weight: 600;
       }
       .custom_all_links{
         display: flex;
@@ -288,7 +291,7 @@
        .custom_link_tagline p{
         margin-left: 15px;
         height: 90%;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 1rem;
         
       }
