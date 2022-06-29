@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomLinkController;
 use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\UserSocialLinksController;
+use App\Models\CustomLink;
 use App\Models\SocialLink;
 use App\Models\UserDetail;
 use App\Models\UserSocialLinks;
@@ -147,6 +148,29 @@ Route::get('/custom_link_update_form',[CustomLinkController::class,"update_form"
 
 Route::post('/custom_link_update',[CustomLinkController::class,"custom_link_update"])->name('custom_link_update');
 
+
+////////////////////////////live profile view//////////////////////////////
+
+
+Route::get('/live_preview',function(){
+    $userDetails=UserDetail::where('user_id',Auth::id())->first();
+    $userlinks=UserSocialLinks::where('user_id',Auth::id())->get();
+    $customlinks=CustomLink::where('user_id',Auth::id())->get();
+    $custom_count=CustomLink::where('user_id',Auth::id())->get();
+    
+    $links=[];
+    foreach ($userlinks as $userlink) {
+        $link=SocialLink::where('id',$userlink->social_id)->first();
+        array_push($links,$link);
+    }
+    return view('public_view',[
+        "userDetails"=>$userDetails,
+        "userlinks"=>$userlinks,
+        "customlinks"=>$customlinks,
+        "links"=>$links,
+        "custom_count"=>count($custom_count)
+    ]);
+})->name('live_preview');
 
 
 

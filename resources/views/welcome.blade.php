@@ -506,11 +506,11 @@
            <div class="buttons_container">
 
             <div class="public_view_button">
-              <a>Live view</a>
+              <a href="{{route('live_preview',["id",$userDetails->id])}}">Live Preview</a>
             </div>
 
             <div class="exchange_contact_button">
-              <button id="exchange_button">Exchange contact</button>
+              <button id="exchange_button">Show QR Code</button>
             </div>
 
            </div>
