@@ -81,6 +81,9 @@
         cursor: pointer;
         margin-bottom: 20px; 
       }
+      .social_link p{
+        margin-right: 10px;
+      }
       .social_link img{
         width: 60px;
         height: 60px;
