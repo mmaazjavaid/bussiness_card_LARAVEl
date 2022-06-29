@@ -149,7 +149,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 3px;
+        right: 0px;
         top: 4px;
         color: white;
         width: 40px;
@@ -181,26 +181,24 @@
       .social_link_parent{
        display: flex;
        justify-content:flex-start;
-       width: 50px;
+       width: 12%;
+       height: 50px;
        
       }
       .social_link{
         display: flex;
 
+        width: 100%;
+        height: 100%;
         /* width: 20%; */
         /* background: #000000; */
         /* margin-right: 15px;
         margin-bottom: 15px; */
       }
-      .social_link div{
-
-        display: flex;
-        height: 50px;
-        width: 50px;
-      }
-      .social_link img{
-        height: 50px;
-        width: 50px;
+      .social_link a img{
+        /* height: 50px; */
+        height: 100%;
+        width: 100%;
       }
       .social_network_edit{
         display: flex;
@@ -208,7 +206,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 3px;
+        right: 0px;
         top: 4px;
         color: white;
         width: 40px;
@@ -337,7 +335,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 3px;
+        right: 0px;
         top: 4px;
         color: white;
         width: 40px;
@@ -471,7 +469,7 @@
               @foreach ($links as $link)
               <div class="social_link_parent"  
               @if (($loop->index%4)!=0|| $loop->index==0)
-              style="position: relative; margin-right:24.69px; margin-bottom:14.5px; "
+              style="position: relative; margin-right:10%; margin-bottom:14.5px; "
               @else
               style="position: relative; margin-bottom:14.5px;"
               @endif
@@ -522,7 +520,7 @@
                 </div>
                 
               </a>
-              <a class="update_custom_link" href="{{route('custom_link_update_form')}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a class="update_custom_link" href="{{route('custom_link_update_form',["custom_id"=>$customlink->id])}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
               <a class="delete_custom_button" href="{{route('delete_custom_link',["custom_id"=>$customlink->id])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
             </div>
            

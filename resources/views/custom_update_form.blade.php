@@ -112,7 +112,7 @@
     </style>
 </head>
 <body>
-    <form class="profile--container" action="{{route("custom_link_submit")}}" method="POST" enctype="multipart/form-data">
+    <form class="profile--container" action="{{route("custom_link_update")}}" method="POST" enctype="multipart/form-data">
         
 
         <div class="logo--container">
@@ -126,14 +126,14 @@
 
 
         <div class="custom_link_form_heading">
-            <h4>Add a new link</h4>
+            <h4>Update custom link</h4>
         </div>
 
         <div class="profile_form" >
             @csrf
              <div class="form_name">
                  <div>Title</div>
-                 <input required  type="text" class="name_input" id="name_input" name="title" >
+                 <input required  type="text" class="name_input" id="name_input" value="{{$Title}}" name="title" >
              </div>
              <div class="form_job title">
                  <div>Link url</div>

@@ -32,4 +32,17 @@ class CustomLinkController extends Controller
         ])->delete();
         return redirect()->route('admin_panel');
     }
+
+    public function update_form(Request $request){
+        $custom_link=CustomLink::where([
+            ["user_id","=",Auth::id()],
+            ["id","=",$request->custom_id]
+        ])->get();
+        if(count($custom_link)>0){
+            return view('custom_update_form');
+        }else{
+            return back();
+        }
+        
+    }
 }
