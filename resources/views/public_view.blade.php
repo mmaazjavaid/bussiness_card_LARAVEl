@@ -461,6 +461,27 @@
         color: white;
         background-color: #F76830;
       }
+      .powered_container{
+        display: flex;
+        width: 94%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+
+      }
+      .powered_logo img{
+        width: 75px;
+        height: 75px;
+        margin-right: 5px;
+      }
+      .powered_content .con_1{
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .powered_content .con_2{
+        display: flex;
+        font-size: 0.7rem;
+      }
     </style>
 </head>
 <body>
@@ -501,11 +522,11 @@
            <div class="buttons_container">
 
             <div class="public_view_button">
-              <a href="{{route('live_preview',["id",$userDetails->id])}}">Live Preview</a>
+              <a href="/welcome">Get your card</a>
             </div>
 
             <div class="exchange_contact_button">
-              <button id="exchange_button">Show QR Code</button>
+              <button id="exchange_button">Add contact</button>
             </div>
 
            </div>
@@ -519,9 +540,6 @@
         {{-- //////////////////////////////////////ABOUT CONTAINER////////////////////////////// --}}
 
         <div class="about_section">
-            <a class="about_form" href="{{route("submit_form",[
-                "about"=>$userDetails->bio
-            ])}}">Edit</a>
             <h4 class="About_heading">About</h4>
             <p>{{$userDetails->bio}}</p>
         </div>
@@ -533,7 +551,6 @@
         {{-- //////////////////////////////////////SOCIAL NETWORK START////////////////////////////// --}}
 
         <div class="social_network_container">
-            <a class="social_network_edit" href="{{route("social_icon_adder")}}">Edit</a>
             <div class="social_network_heading"><h4>Social network</h4></div>
             <div class="social_links_container">
               @foreach ($links as $link)
@@ -550,7 +567,7 @@
                   
                 
               </a>
-              <a class="delete_social_button" href="{{route('delete-social',["social_id"=>$userlinks[$loop->index]["social_id"]])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+            
               </div>
               
               @endforeach  
@@ -563,9 +580,7 @@
 
          {{-- //////////////////////////////////////Custom link////////////////////////////// --}}
          <div class="custom_links_container">
-          @if ($custom_count<3)
-          <a class="custom_link_edit" href="{{route('custom_network_form')}}">Add</a>    
-          @endif
+          
           
           
           <div class="custom_link_heading"><h4>Custom links</h4></div>
@@ -593,8 +608,6 @@
                 </div>
                 
               </a>
-              <a class="update_custom_link" href="{{route('custom_link_update_form',["custom_id"=>$customlink->id])}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-              <a class="delete_custom_button" href="{{route('delete_custom_link',["custom_id"=>$customlink->id])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
             </div>
            
            @endforeach
@@ -605,22 +618,22 @@
         
 
 
-          {{-- //////////////////////////////////////QR CODE START////////////////////////////// --}}
+          {{-- //////////////////////////////////////powered by avicenna////////////////////////////// --}}
 
-          <div class="qr_code_conatiner">
-            <div class="qr_code_heading">Scan here to connect</div>
-            <div class="qr-code">
-              <?php
-               $uri = $_SERVER['REQUEST_URI'];
-               $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-               $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-               ?>
-              {!! QrCode::size(100)->generate($url.'/'.$userDetails->email); !!}
+
+          <div class="powered_container">
+
+            <div class="powered_logo">
+                <img src="images/logo/Avicenna.gif" alt="" srcset="">
             </div>
-
+            <div class="powered_content">
+                <p class="con_1">Powered by Avicenna</p>
+                <p class="con_2">Get yours at &nbsp; <a href="https://avicennaenterprise.com/"> www.avicennaenterprise.com</a></p>
+            </div>
           </div>
+        
 
-          {{-- //////////////////////////////////////QR CODE END////////////////////////////// --}}
+          {{-- //////////////////////////////////////powered by avicenna end////////////////////////////// --}}
 
 
 
@@ -646,19 +659,19 @@ setInterval(()=>{
     for (let index = 0; index < socials.length; index++) {
         if(random==0){
             if(index%2==0){
-                socials[index].style.transform="translateY(-2px)"
+                socials[index].style.transform="translateY(-1.5px)"
                 socials[index].style.transition="all 0.3s";
             }else if(first_check!=0 && index%2!=0 ){
-                socials[index].style.transform="translateY(2px)"
+                socials[index].style.transform="translateY(1.5px)"
                 socials[index].style.transition="all 0.3s";
             }
             first_check++;
         }else{
             if(index%2!=0){
-                socials[index].style.transform="translateY(-2px)"
+                socials[index].style.transform="translateY(-1.5px)"
                 socials[index].style.transition="all 0.3s";
             }else if(index%2==0){
-                socials[index].style.transform="translateY(2px)"
+                socials[index].style.transform="translateY(1.5px)"
                 socials[index].style.transition="all 0.3s";
             }
         }
