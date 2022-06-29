@@ -29,6 +29,8 @@ class UserDetailController extends Controller
         $userDetails=UserDetail::where('user_id',Auth::id())->first();
         $userlinks=UserSocialLinks::where('user_id',Auth::id())->get();
         $customlinks=CustomLink::where('user_id',Auth::id())->get();
+        $custom_count=CustomLink::where('user_id',Auth::id())->get();
+        
         $links=[];
         foreach ($userlinks as $userlink) {
             $link=SocialLink::where('id',$userlink->social_id)->first();
@@ -38,7 +40,8 @@ class UserDetailController extends Controller
             "userDetails"=>$userDetails,
             "userlinks"=>$userlinks,
             "customlinks"=>$customlinks,
-            "links"=>$links
+            "links"=>$links,
+            "custom_count"=>$custom_count
         ]);
     }
 

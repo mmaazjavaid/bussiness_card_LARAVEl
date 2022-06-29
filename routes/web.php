@@ -140,6 +140,12 @@ Route::get('/delete_custom_link',[CustomLinkController::class,"delete_custom"])-
 Route::get('/custom_link_update_form',[CustomLinkController::class,"update_form"])->name('custom_link_update_form');
 
 
+//////////////////////////Custom link update//////////////////////////////////
+
+
+Route::post('/custom_link_update',[CustomLinkController::class,"custom_link_update"])->name('custom_link_update');
+
+
 
 
 

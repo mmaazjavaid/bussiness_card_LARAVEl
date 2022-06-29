@@ -131,17 +131,18 @@
 
         <div class="profile_form" >
             @csrf
+            <input type="text" hidden name="custom_id" value="{{$custom_link->id}}">
              <div class="form_name">
                  <div>Title</div>
-                 <input required  type="text" class="name_input" id="name_input" value="{{$Title}}" name="title" >
+                 <input required  type="text" class="name_input" id="name_input" value="{{$custom_link->title}}" name="title" >
              </div>
              <div class="form_job title">
                  <div>Link url</div>
-                 <input required type="text" class="job_input" id="job_input" name="link_url" >
+                 <input required type="text" class="job_input" id="job_input" value="{{$custom_link->link_url}}" name="link_url" >
              </div>
              <div class="form_image">
                  <div>Image</div>
-                 <input required type="file" class="image_text" id="image_text" name="image" value="profile1.jpeg">
+                 <input  type="file" class="image_text" id="image_text" value="{{$custom_link->image}}" name="image">
              
              </div>
              <div class="save_button_container">

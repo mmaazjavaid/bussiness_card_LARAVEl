@@ -37,12 +37,41 @@ class CustomLinkController extends Controller
         $custom_link=CustomLink::where([
             ["user_id","=",Auth::id()],
             ["id","=",$request->custom_id]
-        ])->get();
-        if(count($custom_link)>0){
-            return view('custom_update_form');
+        ])->first();
+        if(isset($custom_link)>0){
+            
+            return view('custom_update_form',[
+                "custom_link"=>$custom_link
+            ]);
         }else{
             return back();
         }
         
+    }
+    public function custom_link_update(Request $request){
+        if(isset($request->image)){
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            CustomLink::where([
+                ["user_id","=",Auth::id()],
+                ["id","=",$request->custom_id]
+            ])->update([
+                "title" => $request->title,
+                "image" => $imageName,
+                "link_url"=>$request->link_url
+            ]);
+        }else{
+            CustomLink::where([
+                ["user_id","=",Auth::id()],
+                ["id","=",$request->custom_id]
+            ])->update([
+                "title" => $request->title,
+                "link_url"=>$request->link_url
+            ]);
+        }
+
+
+        return redirect()->route('admin_panel');
+
     }
 }

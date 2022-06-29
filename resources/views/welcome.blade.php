@@ -493,7 +493,10 @@
 
          {{-- //////////////////////////////////////Custom link////////////////////////////// --}}
          <div class="custom_links_container">
-          <a class="custom_link_edit" href="{{route('custom_network_form')}}">Add</a>
+          @if ($custom_count<3)
+          <a class="custom_link_edit" href="{{route('custom_network_form')}}">Add</a>    
+          @endif
+          
           
           <div class="custom_link_heading"><h4>Custom links</h4></div>
           <div class="custom_all_links">
