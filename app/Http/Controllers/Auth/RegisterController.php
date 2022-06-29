@@ -82,8 +82,23 @@ class RegisterController extends Controller
         // UserDetail::create([
 
         // ]);
+        $user=User::latest('updated_at')->first();
+        UserDetail::create([
+            "user_id"=>($user->id)+1,
+            "email"=>$data['email'],
+            "bio"=>" ",
+            "dob"=>" ",
+            "address"=>" ",
+            "gender"=>" ",
+            "name"=>$data['name'],
+            "phone"=>" ",
+            "profileImg"=>"placeholder.png",
+            "job"=>" ",
+            "company_name"=>" "
 
+        ]);
         return User::create([
+            'id'=>($user->id)+1,
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

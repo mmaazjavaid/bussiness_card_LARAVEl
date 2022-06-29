@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Profile Dashboard</title>
@@ -16,8 +17,12 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
+        html{
+          scroll-behavior: smooth;
+        }
         body{
             display: flex;
+            
             justify-content: center;
             width: 100%;
         }
@@ -122,7 +127,7 @@
         z-index: 2;
         height: 30px;
         border-radius: 50%;
-        background-color: #F76830;
+        background-color: rgb(41, 190, 41);
       }
       .about_section{
         display: flex;
@@ -184,7 +189,9 @@
        width: 12%;
        height: 50px;
        
+       
       }
+        
       .social_link{
         display: flex;
 
@@ -343,7 +350,7 @@
         width: 40px;
         font-size: 0.7rem;
         height: 20px;
-        background-color: #F76830; 
+        background-color:#F76830; 
       }
 
       .delete_social_button{
@@ -394,7 +401,7 @@
         display: flex;
         height: 14px;
         width: 14px;
-        background: #F76830;
+        background: rgb(41, 190, 41);
         border-radius: 50%;
         justify-content: center;
         align-items: center;
@@ -404,6 +411,51 @@
         color: #FFFFFF;
         font-size: 0.5rem;
         border-radius: 50%;
+      }
+      .qr_code_conatiner{
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+      }
+      .qr_code_heading{
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .qr-code{
+        margin-bottom: 40px;
+      }
+
+      .buttons_container{
+        display: flex;
+        width: 93%;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+      .public_view_button{
+        width: 44%;
+      }
+      .public_view_button button{
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px solid #5b6061;
+        color: #000000;
+        background-color: #FFFFFF;
+      }
+      .exchange_contact_button{
+        width: 54%;
+      }
+      .exchange_contact_button button{
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: #F76830;
       }
     </style>
 </head>
@@ -444,6 +496,23 @@
         </div>
 
         {{-- //////////////////////////////////////HEADER CONTAINER END////////////////////////////// --}}
+
+{{-- //////////////////////////////////////Buttons area start////////////////////////////// --}}
+
+           <div class="buttons_container">
+
+            <div class="public_view_button">
+              <button>Live view</button>
+            </div>
+
+            <div class="exchange_contact_button">
+              <button id="exchange_button">Exchange contact</button>
+            </div>
+
+           </div>
+
+{{-- //////////////////////////////////////Button area end////////////////////////////// --}}
+        
 
 
 
@@ -534,9 +603,69 @@
           </div>
          </div>
           {{-- //////////////////////////////////////Custom link END////////////////////////////// --}}
+        
+
+
+          {{-- //////////////////////////////////////QR CODE START////////////////////////////// --}}
+
+          <div class="qr_code_conatiner">
+            <div class="qr_code_heading">Scan here to connect</div>
+            <div class="qr-code">
+              <?php
+               $uri = $_SERVER['REQUEST_URI'];
+               $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+               $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+               ?>
+              {!! QrCode::size(100)->generate($url.'/'.$userDetails->email); !!}
+            </div>
+
+          </div>
+
+          {{-- //////////////////////////////////////QR CODE END////////////////////////////// --}}
+
 
 
     </div>
+    <script>
+
+
+   function scroll() {
+    console.log("hello");
     
+   }
+
+   var  exchange_button=document.getElementById('exchange_button').onclick=function scroll(params) {
+    window.scrollTo(0,document.body.scrollHeight);
+}
+
+
+
+      var first_check=0;
+      var socials=document.querySelectorAll('.social_link_parent');
+setInterval(()=>{
+    var random=Math.floor(Math.random() * 2);
+    for (let index = 0; index < socials.length; index++) {
+        if(random==0){
+            if(index%2==0){
+                socials[index].style.transform="translateY(-3px)"
+                socials[index].style.transition="all 0.3s";
+            }else if(first_check!=0 && index%2!=0 ){
+                socials[index].style.transform="translateY(3px)"
+                socials[index].style.transition="all 0.3s";
+            }
+            first_check++;
+        }else{
+            if(index%2!=0){
+                socials[index].style.transform="translateY(-3px)"
+                socials[index].style.transition="all 0.3s";
+            }else if(index%2==0){
+                socials[index].style.transform="translateY(3px)"
+                socials[index].style.transition="all 0.3s";
+            }
+        }
+    }
+       
+},5000)
+    </script>
 </body>
 </html>

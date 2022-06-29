@@ -6,7 +6,7 @@ var profile_input=document.getElementById("file");
 /////////////////////////INPUTS//////////////////////////////////
 var name_input=document.getElementById("name_input");
 var job_input=document.getElementById('job_input');
-var image_text=document.getElementById("image_text");
+//var image_text=document.getElementById("image_text");
 
 
 ///////////////////////////Making inputs equal to previous text///////////////
@@ -21,6 +21,6 @@ console.log(name_input.value)
 job_input.onchange=()=>{
     job.innerHTML = job_input.value
 }
-profile_input.onchange=()=>{
-    image_text.value=profile_input.value
-}
+// profile_input.onchange=()=>{
+//     image_text.value=profile_input.value
+// }

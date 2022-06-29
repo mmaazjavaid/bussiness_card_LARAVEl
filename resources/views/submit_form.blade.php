@@ -104,14 +104,14 @@
     <form class="profile--container" action="{{route("submit_about")}}" method="POST" enctype="multipart/form-data">
         
 
-      <div class="logo--container">
+      <a href="/welcome" class="logo--container">
         <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
         <div class="hamburger--menu">
           <div></div>
           <div></div>
           <div></div>
         </div>
-      </div>
+      </a>
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
         <div class="profile_form" >

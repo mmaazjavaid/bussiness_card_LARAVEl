@@ -227,11 +227,11 @@
                 <div>Job title</div>
                 <input type="text" class="job_input" id="job_input" name="job" value="{{$job}}">
             </div>
-            <div class="form_image">
+            {{-- <div class="form_image">
                 <div>Image</div>
                 <input type="text" class="image_text" id="image_text" name="image_text" value="profile1.jpeg" readonly>
             
-            </div>
+            </div> --}}
             <div class="save_button_container">
                 <button type="submit">Save Information</button>
             </div>
