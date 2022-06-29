@@ -13,16 +13,29 @@ class UserSocialLinksController extends Controller
         $this->middleware('auth');
     }
     public function store_link(Request $request){
-        UserSocialLinks::create([
-            "user_id"=>Auth::id(),
-            "social_id"=>$request->link_id,
-            "link_url"=>$request->link_url
-        ]);
-        return redirect()->route('social_network_form');
+        $link=UserSocialLinks::where('social_id',$request->link_id)->get();
+        if(count($link)>0){
+            UserSocialLinks::where([
+                ["user_id","=",Auth::id()],
+                ["social_id","=",$request->link_id]
+            ])->update([
+                "user_id"=>Auth::id(),
+                "social_id"=>$request->link_id,
+                "link_url"=>$request->link_url
+            ]);
+        }else{
+            UserSocialLinks::create([
+                "user_id"=>Auth::id(),
+                "social_id"=>$request->link_id,
+                "link_url"=>$request->link_url
+            ]);
+        }
+        
+        return redirect()->route('admin_panel');
     }
     public function delete_link(Request $request){
         UserSocialLinks::where('social_id',$request->social_id)->delete();
-        return redirect()->route('social_network_form');
+        return redirect()->route('admin_panel');
     }
     public function update_social(Request $request){
         UserSocialLinks::where([

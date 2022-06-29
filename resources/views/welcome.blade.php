@@ -184,6 +184,12 @@
         margin-right: 10px;
         margin-bottom: 10px;
       }
+      .social_link div{
+
+        display: flex;
+        height: 50px;
+        width: 50px;
+      }
       .social_link img{
         height: 50px;
         width: 50px;
@@ -258,6 +264,7 @@
       .custom_link{
         display: flex;
         width: 100%;
+        position: relative;
         height: 50px;
         margin-top: 6px;
         margin-bottom: 6px;
@@ -282,25 +289,36 @@
       }
       .custom_link_tagline{
         display: flex;
-        
+        height: 100%;
         align-items: center;
-        width:75%;
+        width:80%;
         
+      }
+      .custom_link_tagline p{
+        max-width: 100%;
+        max-height: 100%;
+        white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
       }
       .custom_link_button{
         display: flex;
         width: 20%;
+        justify-content: center;
+        align-items: center;
+      }
+      .custom_link_button div{
+        display: flex;
         justify-content: flex-end;
         align-items: center;
       }
       .custom_link_button div i{
         display: flex;
+        margin-left: 15px;
         color: #F76830;
-        margin-right: 15px;
+        
       }
        .custom_link_tagline p{
-        
-        
         font-weight: 600;
         font-size: 1rem;
         
@@ -318,6 +336,27 @@
         font-size: 0.7rem;
         height: 20px;
         background-color: #F76830; 
+      }
+
+      .delete_social_button{
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        display: flex;
+        height: 15px;
+        width: 15px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        
+
+      }
+      .delete_social_button i{
+        color: rgb(247, 33, 33);
+        font-size: 1rem;
+        border-radius: 50%;
       }
     </style>
 </head>
@@ -379,13 +418,20 @@
         {{-- //////////////////////////////////////SOCIAL NETWORK START////////////////////////////// --}}
 
         <div class="social_network_container">
-            <a class="social_network_edit" href="{{route("social_network_form")}}">Edit</a>
+            <a class="social_network_edit" href="{{route("social_icon_adder")}}">Edit</a>
             <div class="social_network_heading"><h4>Social network</h4></div>
             <div class="social_links_container">
               @foreach ($links as $link)
-              <a target="_blank" href="{{$userlinks[$loop->index]["link_url"]}}" class="social_link">
-                <img src="images/social/{{$link->link_image}}" >
+              <div style="position: relative;">
+                <a target="_blank" href="{{$userlinks[$loop->index]["link_url"]}}" class="social_link">
+                
+                  <img src="images/social/{{$link->link_image}}" >
+                  
+                
               </a>
+              <a class="delete_social_button" href="{{route('delete-social',["social_id"=>$userlinks[$loop->index]["social_id"]])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+              </div>
+              
               @endforeach  
             </div>
         </div>
@@ -397,20 +443,22 @@
          {{-- //////////////////////////////////////Custom link////////////////////////////// --}}
          <div class="custom_links_container">
           <a class="custom_link_edit" href="{{route('custom_network_form')}}">Edit</a>
+          
           <div class="custom_link_heading"><h4>Custom links</h4></div>
           <div class="custom_all_links">
             
            @foreach ($customlinks as $customlink)
 
-           <a href="/delete_custom_link"></a>
+          
 
            <a target="_blank" href="{{$customlink->link_url}}" class="custom_link">
             <img src="images/{{$customlink->image}}" >
             <div class="custom_link_content">
               <div class="custom_link_tagline"><p>{{$customlink->title}}</p></div>
               <div class="custom_link_button">
-                <div>
+                <div style="position: relative;">
                   <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  
                 </div>
                 
               </div>

@@ -85,9 +85,22 @@ Route::get('/social_network_form',function(){
 })->name('social_network_form');
 
 
+///////////////////////////Social icons adder/////////////////////////////
+
+
+Route::get("/social_icon_adder",function(){
+    $links=SocialLink::orderBy('id')->get();
+    $user_links=UserSocialLinks::where('user_id',Auth::id())->get();
+    return view('social_icon_adder',[
+        "links"=>$links,
+        "user_links"=>$user_links
+    ]);
+})->name('social_icon_adder');
+
 ///////////////////////SAVE SOCIAL NETWORK///////////////////////
 
-Route::get('/submit_about',[UserSocialLinksController::class,'store_link']);
+// Route::get('/submit_about',[UserSocialLinksController::class,'store_link']);
+Route::post('/submit_about',[UserSocialLinksController::class,'store_link'])->name('submit_about');
 
 
 ///////////////////////DELETE SOCIAL/////////////////////////////
@@ -114,3 +127,8 @@ Route::get('/custom_network_form',function(){
 
 
 Route::post('/custom_link_submit',[CustomLinkController::class,"create_link"])->name('custom_link_submit');
+
+
+
+
+
