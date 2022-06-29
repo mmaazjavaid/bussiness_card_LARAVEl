@@ -100,7 +100,7 @@ Route::get("/social_icon_adder",function(){
 ///////////////////////SAVE SOCIAL NETWORK///////////////////////
 
 // Route::get('/submit_about',[UserSocialLinksController::class,'store_link']);
-Route::post('/submit_about',[UserSocialLinksController::class,'store_link'])->name('submit_about');
+Route::post('/submit_link',[UserSocialLinksController::class,'store_link'])->name('submit_link');
 
 
 ///////////////////////DELETE SOCIAL/////////////////////////////
@@ -132,6 +132,14 @@ Route::post('/custom_link_submit',[CustomLinkController::class,"create_link"])->
 ////////////////////////Custom link delete//////////////////////////////
 
 Route::get('/delete_custom_link',[CustomLinkController::class,"delete_custom"])->name('delete_custom_link');
+
+
+//////////////////////CUSTOM LINK UPDATE form/////////////////////////////////
+
+
+Route::get('/custom_link_update_form',function(){
+
+})->name('custom_link_update_form');
 
 
 

@@ -149,7 +149,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 0px;
+        right: 3px;
         top: 4px;
         color: white;
         width: 40px;
@@ -178,11 +178,19 @@
         flex-wrap: wrap;
         
       }
-
+      .social_link_parent{
+       display: flex;
+       justify-content:flex-start;
+       width: 50px;
+       
+      }
       .social_link{
-        width: 16%;
-        margin-right: 10px;
-        margin-bottom: 10px;
+        display: flex;
+
+        /* width: 20%; */
+        /* background: #000000; */
+        /* margin-right: 15px;
+        margin-bottom: 15px; */
       }
       .social_link div{
 
@@ -200,7 +208,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 0px;
+        right: 3px;
         top: 4px;
         color: white;
         width: 40px;
@@ -317,7 +325,6 @@
         display: flex;
         margin-left: 15px;
         color: #F76830;
-        
       }
        .custom_link_tagline p{
         font-weight: 600;
@@ -330,7 +337,7 @@
         justify-content: center;
         position: absolute;
         text-decoration: none;
-        right: 0px;
+        right: 3px;
         top: 4px;
         color: white;
         width: 40px;
@@ -377,6 +384,25 @@
       .delete_custom_button i{
         color: rgb(247, 33, 33);
         font-size: 1rem;
+        border-radius: 50%;
+      }
+      .update_custom_link{
+        position: absolute;
+        top: 1px;
+        left: 36px;
+        
+        display: flex;
+        height: 14px;
+        width: 14px;
+        background: #F76830;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+      }
+      .update_custom_link i{
+        color: #FFFFFF;
+        font-size: 0.5rem;
         border-radius: 50%;
       }
     </style>
@@ -443,7 +469,13 @@
             <div class="social_network_heading"><h4>Social network</h4></div>
             <div class="social_links_container">
               @foreach ($links as $link)
-              <div style="position: relative;">
+              <div class="social_link_parent"  
+              @if (($loop->index%4)!=0|| $loop->index==0)
+              style="position: relative; margin-right:24.69px; margin-bottom:14.5px; "
+              @else
+              style="position: relative; margin-bottom:14.5px;"
+              @endif
+              >
                 <a target="_blank" href="{{$userlinks[$loop->index]["link_url"]}}" class="social_link">
                 
                   <img src="images/social/{{$link->link_image}}" >
@@ -490,6 +522,7 @@
                 </div>
                 
               </a>
+              <a class="update_custom_link" href="{{route('custom_link_update_form')}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
               <a class="delete_custom_button" href="{{route('delete_custom_link',["custom_id"=>$customlink->id])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
             </div>
            

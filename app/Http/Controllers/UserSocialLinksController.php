@@ -13,7 +13,10 @@ class UserSocialLinksController extends Controller
         $this->middleware('auth');
     }
     public function store_link(Request $request){
-        $link=UserSocialLinks::where('social_id',$request->link_id)->get();
+        $link=UserSocialLinks::where([
+            ["user_id","=",Auth::id()],
+            ["social_id","=",$request->link_id]
+        ])->get();
         if(count($link)>0){
             UserSocialLinks::where([
                 ["user_id","=",Auth::id()],

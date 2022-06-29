@@ -204,7 +204,7 @@
         
     </div>
     @foreach ($links as $link)
-        <form action="{{route('submit_about')}}" method="POST" class="modal" id="modal">
+        <form action="{{route('submit_link')}}" method="POST" class="modal" id="modal">
             @csrf
             <a class="down_button"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
             <div class="modal--heading">{{$link->link_name}}</div>
