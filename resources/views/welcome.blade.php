@@ -259,6 +259,8 @@
       .custom_link_heading h4{
         font-size: 1rem;
         font-weight: 600;
+        margin-top: 5px;
+        margin-bottom: 10px;
       }
       .custom_all_links{
         display: flex;
@@ -504,7 +506,7 @@
            @foreach ($customlinks as $customlink)
 
           
-            <div style="position: relative;">
+            <div style="position: relative; margin-bottom:10px;">
               <a target="_blank" href="{{$customlink->link_url}}" class="custom_link">
                 <div>
                   <img src="images/{{$customlink->image}}" >

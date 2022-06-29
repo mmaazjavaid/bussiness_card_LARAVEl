@@ -41,7 +41,7 @@ class UserDetailController extends Controller
             "userlinks"=>$userlinks,
             "customlinks"=>$customlinks,
             "links"=>$links,
-            "custom_count"=>$custom_count
+            "custom_count"=>count($custom_count)
         ]);
     }
 
