@@ -25,4 +25,11 @@ class CustomLinkController extends Controller
         ]);
         return redirect()->route('admin_panel');
     }
+    public function delete_custom(Request $request){
+        CustomLink::where([
+            ["user_id","=",Auth::id()],
+            ["id","=",$request->custom_id]
+        ])->delete();
+        return redirect()->route('admin_panel');
+    }
 }

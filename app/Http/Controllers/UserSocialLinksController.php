@@ -34,7 +34,10 @@ class UserSocialLinksController extends Controller
         return redirect()->route('admin_panel');
     }
     public function delete_link(Request $request){
-        UserSocialLinks::where('social_id',$request->social_id)->delete();
+        UserSocialLinks::where([
+            ["user_id","=",Auth::id()],
+            ["social_id","=",$request->social_id]
+        ])->delete();
         return redirect()->route('admin_panel');
     }
     public function update_social(Request $request){

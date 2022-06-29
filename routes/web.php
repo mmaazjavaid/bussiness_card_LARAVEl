@@ -131,9 +131,7 @@ Route::post('/custom_link_submit',[CustomLinkController::class,"create_link"])->
 
 ////////////////////////Custom link delete//////////////////////////////
 
-Route::get('/delete_custom_link',function(){
-
-})->name('delete_custom_link');
+Route::get('/delete_custom_link',[CustomLinkController::class,"delete_custom"])->name('delete_custom_link');
 
 
 

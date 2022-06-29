@@ -463,7 +463,7 @@
 
          {{-- //////////////////////////////////////Custom link////////////////////////////// --}}
          <div class="custom_links_container">
-          <a class="custom_link_edit" href="{{route('custom_network_form')}}">Edit</a>
+          <a class="custom_link_edit" href="{{route('custom_network_form')}}">Add</a>
           
           <div class="custom_link_heading"><h4>Custom links</h4></div>
           <div class="custom_all_links">
