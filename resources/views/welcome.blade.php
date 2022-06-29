@@ -436,10 +436,14 @@
       .public_view_button{
         width: 44%;
       }
-      .public_view_button button{
+      .public_view_button a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         height: 40px;
         cursor: pointer;
+        text-decoration: none;
         border-radius: 5px;
         border: 1px solid #5b6061;
         color: #000000;
@@ -502,7 +506,7 @@
            <div class="buttons_container">
 
             <div class="public_view_button">
-              <button>Live view</button>
+              <a>Live view</a>
             </div>
 
             <div class="exchange_contact_button">
@@ -647,19 +651,19 @@ setInterval(()=>{
     for (let index = 0; index < socials.length; index++) {
         if(random==0){
             if(index%2==0){
-                socials[index].style.transform="translateY(-3px)"
+                socials[index].style.transform="translateY(-2px)"
                 socials[index].style.transition="all 0.3s";
             }else if(first_check!=0 && index%2!=0 ){
-                socials[index].style.transform="translateY(3px)"
+                socials[index].style.transform="translateY(2px)"
                 socials[index].style.transition="all 0.3s";
             }
             first_check++;
         }else{
             if(index%2!=0){
-                socials[index].style.transform="translateY(-3px)"
+                socials[index].style.transform="translateY(-2px)"
                 socials[index].style.transition="all 0.3s";
             }else if(index%2==0){
-                socials[index].style.transform="translateY(3px)"
+                socials[index].style.transform="translateY(2px)"
                 socials[index].style.transition="all 0.3s";
             }
         }
