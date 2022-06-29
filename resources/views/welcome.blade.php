@@ -274,6 +274,7 @@
         align-items: center;
         
       }
+      
       .custom_link img{
         border-radius: 10px;
         width: 50px;
@@ -341,7 +342,7 @@
       .delete_social_button{
         position: absolute;
         top: -3px;
-        left: -3px;
+        left: -0px;
         display: flex;
         height: 15px;
         width: 15px;
@@ -354,6 +355,26 @@
 
       }
       .delete_social_button i{
+        color: rgb(247, 33, 33);
+        font-size: 1rem;
+        border-radius: 50%;
+      }
+      .delete_custom_button{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        
+        display: flex;
+        height: 15px;
+        width: 15px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        
+      }
+      .delete_custom_button i{
         color: rgb(247, 33, 33);
         font-size: 1rem;
         border-radius: 50%;
@@ -450,21 +471,28 @@
            @foreach ($customlinks as $customlink)
 
           
-
-           <a target="_blank" href="{{$customlink->link_url}}" class="custom_link">
-            <img src="images/{{$customlink->image}}" >
-            <div class="custom_link_content">
-              <div class="custom_link_tagline"><p>{{$customlink->title}}</p></div>
-              <div class="custom_link_button">
-                <div style="position: relative;">
-                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            <div style="position: relative;">
+              <a target="_blank" href="{{$customlink->link_url}}" class="custom_link">
+                <div>
+                  <img src="images/{{$customlink->image}}" >
                   
                 </div>
                 
-              </div>
+                <div class="custom_link_content">
+                  <div class="custom_link_tagline"><p>{{$customlink->title}}</p></div>
+                  <div class="custom_link_button">
+                    <div style="position: relative;">
+                      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+                
+              </a>
+              <a class="delete_custom_button" href="{{route('delete_custom_link',["custom_id"=>$customlink->id])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
             </div>
-            
-          </a>
+           
            @endforeach
 
           </div>

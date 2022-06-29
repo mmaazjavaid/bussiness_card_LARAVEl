@@ -129,6 +129,13 @@ Route::get('/custom_network_form',function(){
 Route::post('/custom_link_submit',[CustomLinkController::class,"create_link"])->name('custom_link_submit');
 
 
+////////////////////////Custom link delete//////////////////////////////
+
+Route::get('/delete_custom_link',function(){
+
+})->name('delete_custom_link');
+
+
 
 
 
