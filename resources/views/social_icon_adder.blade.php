@@ -8,7 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Add Social icons</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<title>Add Social icons</title>
     <style>
         *{
             padding: 0%;
@@ -132,8 +138,10 @@
       }
       .input_fields{
         display: flex;
+        flex-direction: column;
         width: 100%;
         justify-content: center;
+        align-items: center;
         margin-bottom: 20px;
       }
       .link_url{
@@ -142,6 +150,11 @@
         width: 70%;
 
         border-bottom: 1px solid #bfc3c4;
+      }
+      .hint{
+        display: flex;
+        margin-top: 15px;
+        font-size: 0.8rem;
       }
       .down_button{
         position: absolute;
@@ -212,8 +225,9 @@
                 <img src="images/social/{{$link->link_image}}" alt="" srcset="">
             </div>
             <div class="input_fields">
-                <input type="text" class="link_url" name="link_url" required placeholder="Add url here...">
+                <input type="text" class="link_url" name="link_url" id="link_url" required placeholder="Add url here...">
                 <input type="text" name="link_id" value="{{$link->id}}" hidden>
+                <p class="hint">https://www.linked.com/</p>
             </div>
             <div class="save_button_container">
                 <button type="submit">save</button>
@@ -221,6 +235,61 @@
         </form>
         @endforeach
 <script>
+
+
+const arr=[
+
+    {
+        id:1,
+        name:"linkedin",
+        baseUrl:"https://www.linkedin.com/"
+    },
+    {
+        id:2,
+        name:"line",
+        baseUrl:"https://www.line.com/"
+    },
+    {
+        id:3,
+        name:"khamsat",
+        baseUrl:"https://www.khamsat.com/"
+    },
+    {
+        id:4,
+        name:"linktree",
+        baseUrl:"https://www.linktree.com/"
+    },
+    {
+        id:5,
+        name:"menu",
+        baseUrl:"https://www.menu.com/"
+    },
+    {
+        id:6,
+        name:"phone",
+        baseUrl:"https://www.phone.com/"
+    },
+    {
+        id:7,
+        name:"facetime",
+        baseUrl:"https://www.facetime.com/"
+    },
+    {
+        id:8,
+        name:"facebook",
+        baseUrl:"https://www.facebook.com/"
+    },
+    {
+        id:9,
+        name:"pinterest",
+        baseUrl:"https://www.pinterest.com/"
+    },
+
+]
+
+
+
+
 const modals=document.querySelectorAll('.modal');    
 const social_links=document.querySelectorAll('.social_link');
 const down_buttons=document.querySelectorAll('.down_button');
@@ -231,10 +300,32 @@ for (let index = 0; index < social_links.length; index++) {
 }
 for (let index = 0; index < down_buttons.length; index++) {
   down_buttons[index].onclick = function() {
-  modals[index].style.display = "none";
+  for (let index = 0; index < modals.length; index++) {
+    modals[index].style.display="none"
+  }
 }
 }
 
+
+const link_inputs=document.querySelectorAll('.link_url');
+const hints=document.querySelectorAll('.hint')
+for (let index = 0; index < hints.length; index++) {
+  
+  hints[index].innerHTML=arr[index]["baseUrl"]
+}
+for (let index = 0; index < link_inputs.length; index++) {
+  $(link_inputs[index]).keyup(()=>{
+    hints[index].innerHTML=arr[index]["baseUrl"]+link_inputs[index].value
+  })
+}
+// const link_url=document.getElementById('link_url');
+// link_url.onkeydown(()=>{
+//     document.getElementById('hint').innerHTML=document.getElementById('hint').innerHTML+link_url.value;
+// })
+// $(input_fields[index]).focus(function () {
+//     $('#loaderIcon').show();
+//     $('#tick_icon').hide();
+// })
 </script>
 
     

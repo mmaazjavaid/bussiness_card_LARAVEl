@@ -77,7 +77,7 @@ function addNew() {
         option.text = element.name;
         select.add(option);
     })
-
+   
     
     div_3.appendChild(select)
     div_3.appendChild(input)
@@ -86,13 +86,11 @@ function addNew() {
     div_2.appendChild(save_button)
     div_1.appendChild(div_2)
     div_1.appendChild(div_3)
-
-
      form.appendChild(div_1);
     const button=document.getElementById('add_new_button');
-
     document.getElementById('social_link_form_container').insertBefore(form,button);
 }
+
 
 
 
