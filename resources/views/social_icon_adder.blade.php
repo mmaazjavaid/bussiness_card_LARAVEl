@@ -225,7 +225,8 @@
                 <img src="images/social/{{$link->link_image}}" alt="" srcset="">
             </div>
             <div class="input_fields">
-                <input type="text" class="link_url" name="link_url" id="link_url" required placeholder="Add url here...">
+                <input type="text" class="link_url" name="link_text" id="link_url" required placeholder="Add url here...">
+                <input type="text" class="url_inputs" name="link_url" hidden>
                 <input type="text" name="link_id" value="{{$link->id}}" hidden>
                 <p class="hint">https://www.linked.com/</p>
             </div>
@@ -309,6 +310,8 @@ for (let index = 0; index < down_buttons.length; index++) {
 
 const link_inputs=document.querySelectorAll('.link_url');
 const hints=document.querySelectorAll('.hint')
+
+const url_inputs=document.querySelectorAll('.url_inputs')
 for (let index = 0; index < hints.length; index++) {
   
   hints[index].innerHTML=arr[index]["baseUrl"]
@@ -316,6 +319,7 @@ for (let index = 0; index < hints.length; index++) {
 for (let index = 0; index < link_inputs.length; index++) {
   $(link_inputs[index]).keyup(()=>{
     hints[index].innerHTML=arr[index]["baseUrl"]+link_inputs[index].value
+    url_inputs[index].value=hints[index].innerHTML
   })
 }
 // const link_url=document.getElementById('link_url');
