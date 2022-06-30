@@ -396,7 +396,7 @@
       .update_custom_link{
         position: absolute;
         top: 1px;
-        left: 36px;
+        left: 46px;
         
         display: flex;
         height: 14px;
