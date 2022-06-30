@@ -187,7 +187,7 @@
        display: flex;
        justify-content:flex-start;
        width: 12%;
-       height: 50px;
+       height: 60px;
        
        
       }

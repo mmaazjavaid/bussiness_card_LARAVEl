@@ -195,11 +195,5 @@ Route::get('/live_preview',function(Request $request){
 
 ///////////////////////////////////Login//////////////////////////////
 
-Route::get('/mylogin',function(){
-    return view('auth.mylogin');
-});
-Route::get('/mysignup',function(){
-    return view('auth.mysignup');
-});
 
 

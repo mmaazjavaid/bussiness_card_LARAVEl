@@ -28,7 +28,7 @@
         flex-direction: column;
         align-items: center;
  
-        width: 100%;
+        width: 400px;
      }
      .svg_container{
         display: flex;
@@ -172,6 +172,14 @@
         width: 25px;
         border-top:2px solid #F76830;
       }
+      .second_page{
+        margin-top: 40px;
+      }
+      .second_page a{
+        color: #f08832;
+        font-weight: 500;
+        text-decoration: none;
+      }
     </style>
 </head>
 <body>
@@ -197,7 +205,8 @@
         
             
 
-        <form class="form_inputs_container" action="#">
+        <form class="form_inputs_container" method="POST" action="{{ route('login') }}">
+            @csrf
             <div class="headings_container">
                 <div class="main_heading">Login</div>
                 <div class="sub_heading">Please sign in to continue</div>
@@ -205,12 +214,22 @@
             <div class="form_input_area">
                 <div class="email_input">
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    <input type="text" placeholder="Email">
+                    <input id="email" type="email" placeholder="Email"   class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"  >
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
                 
                 <div class="password_input">
                     <i style="display:flex; font-size:1.5rem; margin-left:2px;" class="fa fa-lock" aria-hidden="true"></i>
-                    <input placeholder="password" type="password">
+                    <input id="password" placeholder="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
             </div>
             <div class="button_container">
@@ -221,8 +240,14 @@
         </form>
 
 
+        <div class="second_page">
+            Dont have an account ?<a href="{{ route('register') }}"> Sign up</a> 
+        </div>
+
+
 
     <div class="bottom_svg_container">
+        
         <svg style="display: flex; height:150px; width:100%;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#F76830" fill-opacity="1" d="M0,96L60,85.3C120,75,240,53,360,69.3C480,85,600,139,720,170.7C840,203,960,213,1080,202.7C1200,192,1320,160,1380,144L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
           </svg>

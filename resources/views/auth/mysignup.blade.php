@@ -28,7 +28,7 @@
         flex-direction: column;
         align-items: center;
  
-        width: 100%;
+        width: 400px;
      }
      .svg_container{
         display: flex;
@@ -173,6 +173,14 @@
         width: 25px;
         border-top:2px solid #F76830;
       }
+      .second_page{
+        margin-top: 40px;
+      }
+      .second_page a{
+        color: #f08832;
+        font-weight: 500;
+        text-decoration: none;
+      }
     </style>
 </head>
 <body>
@@ -246,7 +254,9 @@
             </div>
         </form>
 
-
+        <div class="second_page">
+            Already have a account ? <a href="{{ route('login') }}"> Sign in</a> 
+        </div>
 
     <div class="bottom_svg_container">
         <svg style="display: flex; height:150px; width:100%;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
