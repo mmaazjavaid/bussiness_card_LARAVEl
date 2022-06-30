@@ -495,7 +495,7 @@
             </div>
             <div class="header--content">
                 <h3>{{$userDetails->name}}</h3>
-                <p>{{$userDetails->job}}</p>
+                <p style="width: 70%" >{{$userDetails->job}}</p>
             </div>
         </div>
 
@@ -506,7 +506,7 @@
            <div class="buttons_container">
 
             <div class="public_view_button">
-              <a href="{{route('live_preview',["id",$userDetails->id])}}">Live Preview</a>
+              <a href="{{route('live_preview',["id"=>$userDetails->id])}}">Live Preview</a>
             </div>
 
             <div class="exchange_contact_button">
@@ -544,7 +544,7 @@
               @foreach ($links as $link)
               <div class="social_link_parent"  
               @if (($loop->index%4)!=0|| $loop->index==0)
-              style="position: relative; margin-right:10%; margin-bottom:14.5px; "
+              style="position: relative; margin-right:9.5%; margin-bottom:14.5px; "
               @else
               style="position: relative; margin-bottom:14.5px;"
               @endif
@@ -613,7 +613,7 @@
           {{-- //////////////////////////////////////QR CODE START////////////////////////////// --}}
 
           <div class="qr_code_conatiner">
-            <div class="qr_code_heading">Scan here to connect</div>
+            <div class="qr_code_heading">My Qr code</div>
             <div class="qr-code">
               <?php
                $uri = $_SERVER['REQUEST_URI'];

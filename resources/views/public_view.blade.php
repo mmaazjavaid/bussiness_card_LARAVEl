@@ -511,7 +511,7 @@
             </div>
             <div class="header--content">
                 <h3>{{$userDetails->name}}</h3>
-                <p>{{$userDetails->job}}</p>
+                <p style="width: 70%">{{$userDetails->job}}</p>
             </div>
         </div>
 
@@ -556,7 +556,7 @@
               @foreach ($links as $link)
               <div class="social_link_parent"  
               @if (($loop->index%4)!=0|| $loop->index==0)
-              style="position: relative; margin-right:10%; margin-bottom:14.5px; "
+              style="position: relative; margin-right:9.4%; margin-bottom:14.5px; "
               @else
               style="position: relative; margin-bottom:14.5px;"
               @endif

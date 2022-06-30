@@ -187,22 +187,22 @@
 </head>
 <body>
     <form class="profile--container" action="{{route("submit_header")}}" method="POST" enctype="multipart/form-data">
-        <div class="logo--container">
+        <a href="/welcome" class="logo--container">
             <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
             <div class="hamburger--menu">
               <div></div>
               <div></div>
               <div></div>
             </div>
-          </div>
+          </a>
         <div class="header--container">
             <div class="profile--picture">
-                <img src="images/{{$profileImg}}" alt="profile" srcset="">
+                <img src="images/{{$profileImg}}" id="image_display" alt="profile" srcset="">
                 <div class="profile_icon_container">
                     <label class="label_for_profile" for="file">
                         <i class="fa fa-camera profile_input_icon" aria-hidden="true"></i>
                         
-                        <input class="profile_input" type="file" name="image" id="file" >
+                        <input class="profile_input" type="file" onchange="loadFile(event)"  accept="image/*" name="image" id="file" >
                     </label>
                 </div>
                 
@@ -211,7 +211,7 @@
             </div>
             <div class="header--content">
                 <h3 id="name">{{$name}}</h3>
-                <p id="job">{{$job}}</p>
+                <p style="width: 70%" id="job">{{$job}}</p>
             </div>
         </div>
 
@@ -241,5 +241,12 @@
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
         
     </form>
+
+    <script>
+      var loadFile = function(event) {
+        var image = document.getElementById('image_display');
+        image.src = URL.createObjectURL(event.target.files[0]);
+      };
+      </script>
 </body>
 </html>

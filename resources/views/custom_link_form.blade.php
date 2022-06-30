@@ -108,6 +108,20 @@
         margin-top: 30px;
         margin-bottom: 30px;
       }
+      .image_section{
+        display: flex;
+        position: relative;
+        width: 100px;
+        height: 50px;
+      }
+      .label_for_profile{
+        position: absolute;
+        font-size: 2rem;
+        top: 10px;
+        left: 60px;
+        color: rgb(41, 190, 41);
+        cursor: pointer;
+      }
       
     </style>
 </head>
@@ -141,7 +155,20 @@
              </div>
              <div class="form_image">
                  <div>Image</div>
-                 <input required type="file" class="image_text" id="image_text" name="image" value="profile1.jpeg">
+                 <div class="image_section">
+                  <div>
+                    <img src="/images/placeholder.png"  width="50" height="50" id="image_display" alt="" srcset="">
+                  </div>
+                  <div>
+                    <label class="label_for_profile" for="image_text">
+                      <i class="fa fa-upload" aria-hidden="true"></i>
+                      <input required type="file" class="image_text" hidden id="image_text" onchange="loadFile(event)"  accept="image/*"  name="image">
+                  </label>
+                  </div>
+                  
+                  
+                 </div>
+                 
              
              </div>
              <div class="save_button_container">
@@ -152,5 +179,13 @@
 
 
     </form>
+
+    <script>
+      var loadFile = function(event) {
+        var image = document.getElementById('image_display');
+        image.src = URL.createObjectURL(event.target.files[0]);
+      };
+      </script>
+
 </body>
 </html>

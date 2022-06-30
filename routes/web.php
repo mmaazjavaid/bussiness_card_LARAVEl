@@ -152,11 +152,11 @@ Route::post('/custom_link_update',[CustomLinkController::class,"custom_link_upda
 ////////////////////////////live profile view//////////////////////////////
 
 
-Route::get('/live_preview',function(){
-    $userDetails=UserDetail::where('user_id',Auth::id())->first();
-    $userlinks=UserSocialLinks::where('user_id',Auth::id())->get();
-    $customlinks=CustomLink::where('user_id',Auth::id())->get();
-    $custom_count=CustomLink::where('user_id',Auth::id())->get();
+Route::get('/live_preview',function(Request $request){
+    $userDetails=UserDetail::where('user_id',$request->id)->first();
+    $userlinks=UserSocialLinks::where('user_id',$request->id)->get();
+    $customlinks=CustomLink::where('user_id',$request->id)->get();
+    $custom_count=CustomLink::where('user_id',$request->id)->get();
     
     $links=[];
     foreach ($userlinks as $userlink) {
