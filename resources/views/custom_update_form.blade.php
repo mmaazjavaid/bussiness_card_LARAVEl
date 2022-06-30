@@ -108,7 +108,20 @@
         margin-top: 30px;
         margin-bottom: 30px;
       }
-      
+      .image_section{
+        display: flex;
+        position: relative;
+        width: 100px;
+        height: 50px;
+      }
+      .label_for_profile{
+        position: absolute;
+        font-size: 2rem;
+        top: 10px;
+        left: 60px;
+        color: rgb(41, 190, 41);
+        cursor: pointer;
+      }
     </style>
 </head>
 <body>
@@ -142,8 +155,16 @@
              </div>
              <div class="form_image">
                  <div>Image</div>
-                 <input  type="file" class="image_text" id="image_text" value="{{$custom_link->image}}" name="image">
-             
+                 <div class="image_section">
+                  <div>
+                    <img src="/images/{{$custom_link->image}}"  width="50" height="50" id="image_display" alt="" srcset="">
+                  </div>
+                  <div>
+                    <label class="label_for_profile" for="image_text">
+                      <i class="fa fa-upload" aria-hidden="true"></i>
+                      <input  type="file" class="image_text" hidden id="image_text" value="{{$custom_link->image}}" onchange="loadFile(event)"  accept="image/*"  name="image">
+                  </label>
+                  </div>
              </div>
              <div class="save_button_container">
                  <button type="submit">Save </button>
@@ -153,5 +174,17 @@
 
 
     </form>
+
+
+    <script>
+      var loadFile = function(event) {
+        var image = document.getElementById('image_display');
+        image.src = URL.createObjectURL(event.target.files[0]);
+      };
+      </script>
+
+
+
+
 </body>
 </html>

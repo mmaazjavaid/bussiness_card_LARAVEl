@@ -155,6 +155,23 @@ Route::post('/custom_link_update',[CustomLinkController::class,"custom_link_upda
 Route::get('/live_preview',function(Request $request){
     $userDetails=UserDetail::where('user_id',$request->id)->first();
     $userlinks=UserSocialLinks::where('user_id',$request->id)->get();
+    // $userLinksArray=[];
+    // foreach ($userlinks as $singlelink) {
+    //     $key = array('value');
+    //     $single_value=array_fill_keys($key, $singlelink->link_url);
+    //     $key_2 = array('name');
+    //     $second_value=array_fill_keys($key_2, $singlelink->link_name);
+    //     $data=$single_value+$second_value;        
+    //     array_push($userLinksArray,$data);
+    // }
+    
+    // // array_push($data,$userDetails->email);
+    // $keys = array('email');
+    // $keys_2=array('Links');
+    // $a = array_fill_keys($keys, $userDetails->email);
+    // $b=array_fill_keys($keys_2,$userLinksArray);
+    // $new_array=$a+$b;
+    // dd (json_encode($new_array));
     $customlinks=CustomLink::where('user_id',$request->id)->get();
     $custom_count=CustomLink::where('user_id',$request->id)->get();
     
@@ -173,5 +190,16 @@ Route::get('/live_preview',function(Request $request){
 })->name('live_preview');
 
 
+
+
+
+///////////////////////////////////Login//////////////////////////////
+
+Route::get('/mylogin',function(){
+    return view('auth.mylogin');
+});
+Route::get('/mysignup',function(){
+    return view('auth.mysignup');
+});
 
 
