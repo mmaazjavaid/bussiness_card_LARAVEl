@@ -187,7 +187,7 @@
        display: flex;
        justify-content:flex-start;
        width: 12%;
-       height: 50px;
+       height: 60px;
        
        
       }
@@ -292,8 +292,8 @@
       
       .custom_link img{
         border-radius: 10px;
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
       }
       .custom_link_content{
         display: flex;

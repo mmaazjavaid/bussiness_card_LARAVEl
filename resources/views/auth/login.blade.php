@@ -27,7 +27,7 @@
         background-color: #FFFFFF;
         flex-direction: column;
         align-items: center;
- 
+        overflow: hidden;
         width: 400px;
      }
      .svg_container{
@@ -180,6 +180,17 @@
         font-weight: 500;
         text-decoration: none;
       }
+      @media screen and (max-width: 500px) {
+         .login_container{
+        display: flex;
+        background-color: #FFFFFF;
+        flex-direction: column;
+        align-items: center;
+ 
+        width: 95%;
+        overflow: hidden;
+        }
+     }
     </style>
 </head>
 <body>
