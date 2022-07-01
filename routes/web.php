@@ -161,7 +161,9 @@ Route::get('/live_preview',function(Request $request){
     //     $single_value=array_fill_keys($key, $singlelink->link_url);
     //     $key_2 = array('name');
     //     $second_value=array_fill_keys($key_2, $singlelink->link_name);
-    //     $data=$single_value+$second_value;        
+    //     $key_id=array('id');
+    //     $thirdvalue=array_fill_keys($key_id, $singlelink->id);
+    //     $data=$single_value+$second_value+$thirdvalue;        
     //     array_push($userLinksArray,$data);
     // }
     
@@ -171,7 +173,7 @@ Route::get('/live_preview',function(Request $request){
     // $a = array_fill_keys($keys, $userDetails->email);
     // $b=array_fill_keys($keys_2,$userLinksArray);
     // $new_array=$a+$b;
-    // dd (json_encode($new_array));
+    // return response()->json(['data' => $new_array ]); 
     $customlinks=CustomLink::where('user_id',$request->id)->get();
     $custom_count=CustomLink::where('user_id',$request->id)->get();
     
