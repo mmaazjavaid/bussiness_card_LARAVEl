@@ -180,23 +180,22 @@
       .social_links_container{
         display: flex;
         width: 100%;
-        flex-wrap: wrap;
         
+        flex-wrap: wrap;
       }
       .social_link_parent{
        display: flex;
        justify-content:flex-start;
        width: 12%;
        height: 60px;
-       
-       
       }
         
       .social_link{
         display: flex;
-
-        width: 100%;
-        height: 100%;
+        
+        width: 100% ;
+        height: 100% ;
+        /* height: 70px; */
         /* width: 20%; */
         /* background: #000000; */
         /* margin-right: 15px;
@@ -204,9 +203,21 @@
       }
       .social_link a img{
         /* height: 50px; */
-        height: 100%;
-        width: 100%;
+        height: 60px !important;
+        width: 60px !important;
       }
+      .social-icon_name{
+        position: absolute;
+        display: flex;
+        font-size: 0.7rem;
+        justify-content: center;
+        white-space: nowrap;
+       /* overflow: hidden; */
+       text-overflow: ellipsis;
+        width: 60px;
+        top: 60px;
+      }
+      
       .social_network_edit{
         display: flex;
         align-items: center;
@@ -299,7 +310,7 @@
         display: flex;
         margin-left: 15px;
         align-items: center;
-        border-bottom: 1px solid #dde5e7;
+
         height: 100%;
         width: 85%
       }
@@ -548,18 +559,17 @@
               @foreach ($links as $link)
               <div class="social_link_parent"  
               @if (($loop->index%4)!=0|| $loop->index==0)
-              style="position: relative; margin-right:9.5%; margin-bottom:14.5px; "
+              style="position: relative; margin-right:9.5%; margin-bottom:30.5px; "
               @else
-              style="position: relative; margin-bottom:14.5px;"
+              style="position: relative; margin-bottom:30.5px;"
               @endif
               >
                 <a target="_blank" href="{{$userlinks[$loop->index]["link_url"]}}" class="social_link">
-                
                   <img src="images/social/{{$link->link_image}}" >
                   
-                
               </a>
               <a class="delete_social_button" href="{{route('delete-social',["social_id"=>$userlinks[$loop->index]["social_id"]])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+              <div class="social-icon_name"><p >{{$link->link_name}}</p></div>
               </div>
               
               @endforeach  
@@ -581,7 +591,7 @@
           <div class="custom_all_links">
             
            @foreach ($customlinks as $customlink)
-
+           
           
             <div style="position: relative; margin-bottom:10px;">
               <a target="_blank" href="{{$customlink->link_url}}" class="custom_link">
@@ -590,7 +600,12 @@
                   
                 </div>
                 
-                <div class="custom_link_content">
+                <div class="custom_link_content" 
+                @if (count($customlinks)==$loop->index+1)
+                style=""
+                @else
+                style="border-bottom: 1px solid #dde5e7;"    
+                @endif   >
                   <div class="custom_link_tagline"><p>{{$customlink->title}}</p></div>
                   <div class="custom_link_button">
                     <div style="position: relative;">
