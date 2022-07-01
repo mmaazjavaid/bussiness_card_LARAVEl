@@ -162,12 +162,12 @@
         align-items: center;
         width: 95%;
         margin-top: 5px;
-        justify-content: space-between;
+        justify-content: center;
 
       }
       
       .logo img{
-        margin-left: 5px;
+        /* margin-left: 5px; */
         width: 70px;
         height: 70px;
       }
@@ -189,11 +189,11 @@
     <form class="profile--container" action="{{route("submit_header")}}" method="POST" enctype="multipart/form-data">
         <a href="/welcome" class="logo--container">
             <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
-            <div class="hamburger--menu">
+            {{-- <div class="hamburger--menu">
               <div></div>
               <div></div>
               <div></div>
-            </div>
+            </div> --}}
           </a>
         <div class="header--container">
             <div class="profile--picture">

@@ -231,14 +231,14 @@
         top: 0%;
         z-index: 9;
         background-color: #FFFFFF;
-
+        
         margin-top: 5px;
-        justify-content: space-between;
+        justify-content: center;
 
       }
       
       .logo img{
-        margin-left: 5px;
+        /* margin-left: 5px; */
         width: 70px;
         height: 70px;
       }
@@ -334,7 +334,7 @@
         color: #F76830;
       }
        .custom_link_tagline p{
-        font-weight: 600;
+        font-weight: 400;
         font-size: 1rem;
         
       }
@@ -441,10 +441,12 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        font-size: 0.9rem;
         height: 40px;
         cursor: pointer;
         text-decoration: none;
         border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
         border: 1px solid #5b6061;
         color: #000000;
         background-color: #FFFFFF;
@@ -456,7 +458,9 @@
         width: 100%;
         height: 40px;
         cursor: pointer;
+        font-size: 0.9rem;
         border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
         border: none;
         color: white;
         background-color: #F76830;
@@ -468,11 +472,11 @@
 
       <div class="logo--container">
         <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
-        <div class="hamburger--menu">
+        {{-- <div class="hamburger--menu">
           <div></div>
           <div></div>
           <div></div>
-        </div>
+        </div> --}}
       </div>
 
 

@@ -77,7 +77,7 @@
         z-index: 9;
         background-color: #FFFFFF;
         margin-top: 5px;
-        justify-content: space-between;
+        justify-content:center;
 
       }
       
@@ -106,11 +106,11 @@
 
       <a href="/welcome" class="logo--container">
         <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
-        <div class="hamburger--menu">
+        {{-- <div class="hamburger--menu">
           <div></div>
           <div></div>
           <div></div>
-        </div>
+        </div> --}}
       </a>
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
@@ -118,7 +118,7 @@
            @csrf
             <div class="form_name">
                 <div>About</div>
-                <textarea type="text" class="about_input" id="about_input" name="about" value="{{$about}}"></textarea>
+                <textarea rows="4" type="text" class="about_input" id="about_input" name="about" value="{{$about}}"></textarea>
             </div>
             <div class="save_button_container">
                 <button type="submit">Save Information</button>

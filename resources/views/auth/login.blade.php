@@ -149,14 +149,14 @@
         top: 0%;
         z-index: 9;
         background-color: #FFFFFF;
-
+        margin-bottom: 10px;
         margin-top: 5px;
-        justify-content: space-between;
+        justify-content: center;
 
       }
       
       .logo img{
-        margin-left: 5px;
+        margin-right: 10px;
         width: 70px;
         height: 70px;
       }
@@ -199,11 +199,11 @@
 
         <div class="logo--container">
             <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
-            <div class="hamburger--menu">
+            {{-- <div class="hamburger--menu">
               <div></div>
               <div></div>
               <div></div>
-            </div>
+            </div> --}}
           </div>
 
         <div class="svg_container">
