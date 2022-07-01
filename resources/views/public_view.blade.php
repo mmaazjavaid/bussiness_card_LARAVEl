@@ -560,7 +560,7 @@
               @else
               style="position: relative; margin-bottom:14.5px;"
               @endif
-              >
+              >                
                 <a target="_blank" href="{{$userlinks[$loop->index]["link_url"]}}" class="social_link">
                 
                   <img src="images/social/{{$link->link_image}}" >
