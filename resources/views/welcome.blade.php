@@ -592,7 +592,7 @@
                   <img src="images/social/{{$link->link_image}}" >
                   
               </a>
-              <a class="delete_social_button" href="{{route('delete-social',["social_id"=>$userlinks[$loop->index]["social_id"]])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+              <a onclick="confirmation()"  class="delete_social_button" href="{{route('delete-social',["social_id"=>$userlinks[$loop->index]["social_id"]])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
               <div class="social-icon_name"><p >{{$link->link_name}}</p></div>
               </div>
               
@@ -642,12 +642,10 @@
                 
               </a>
               <a class="update_custom_link" href="{{route('custom_link_update_form',["custom_id"=>$customlink->id])}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-              <a class="delete_custom_button" href="{{route('delete_custom_link',["custom_id"=>$customlink->id])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
+              <a onclick="confirmation()" class="delete_custom_button" href="{{route('delete_custom_link',["custom_id"=>$customlink->id])}}"><i class="fa fa-minus-circle" aria-hidden="true"></i></a>
             </div>
-           
            @endforeach
-
-          </div>
+                     </div>
          </div>
           {{-- //////////////////////////////////////Custom link END////////////////////////////// --}}
         
@@ -685,8 +683,14 @@
 
     {{-- ////////////////////////////////POWERED BY AVICENNA END/////////////////////////////// --}}
     <script>
-
-
+    function confirmation(e){
+          if (!confirm("Link will be deleted ! ")) {
+          event.preventDefault();
+          }
+    }
+   function hello(){
+      console.log("hello");
+    }
    function scroll() {
     console.log("hello");
     

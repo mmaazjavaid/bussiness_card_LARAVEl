@@ -275,12 +275,12 @@ const arr=[
     {
         id:1,
         name:"linkedin",
-        baseUrl:"https://www.linkedin.com/"
+        baseUrl:"https://www.linkedin.com/in/"
     },
     {
         id:2,
         name:"line",
-        baseUrl:"https://www.line.com/"
+        baseUrl:"https://line.me/en/"
     },
     {
         id:3,
@@ -295,12 +295,12 @@ const arr=[
     {
         id:5,
         name:"menu",
-        baseUrl:"https://www.menu.com/"
+        baseUrl:"https://menu.com.pk/"
     },
     {
         id:6,
         name:"phone",
-        baseUrl:"https://www.phone.com/"
+        baseUrl:"tel:"
     },
     {
         id:7,
@@ -315,7 +315,7 @@ const arr=[
     {
         id:9,
         name:"pinterest",
-        baseUrl:"https://www.pinterest.com/"
+        baseUrl:"https://pin.it/"
     },
 
 ]
