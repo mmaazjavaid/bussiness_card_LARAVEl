@@ -195,8 +195,6 @@
 </head>
 <body>
     <div class="login_container">
-
-
         <div class="logo--container">
             <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
             {{-- <div class="hamburger--menu">

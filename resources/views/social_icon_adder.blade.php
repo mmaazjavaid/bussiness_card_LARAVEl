@@ -36,17 +36,18 @@
         }
         .logo--container{
         display: flex;
+        width: 90%;
         align-items: center;
-        width: 100%;
-        position: sticky;
-        
-        top: 0%;
-        z-index: 9;
+        margin-top: 25px;
+        color: #575a5a;
+        text-decoration: none;
         background-color: #FFFFFF;
-
-        margin-top: 5px;
         justify-content: center;
-
+      }
+      .logo{
+        display: flex;
+        width: 100%;
+        align-items: center;
       }
       
       .logo img{
@@ -170,6 +171,28 @@
         right: 5px;
         color: rgb(41, 190, 41);
       }
+      /* body{
+        position: relative;
+      } */
+      .powered--avicenna{
+        display: flex;
+        position: absolute;
+        bottom: 40px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+        font-size: 0.8rem;
+        /* margin-top: 40px; */
+      }
+      .first--powered{
+        font-size: 0.8rem;
+      }
+      .second--powered{
+        font-size: 0.7rem;
+      }
     </style>
 </head>
 <body>
@@ -178,14 +201,14 @@
     <div class="profile--container" action="#" method="POST" enctype="multipart/form-data">
         
 
-        <div class="logo--container">
-          <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
-          {{-- <div class="hamburger--menu">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div> --}}
-        </div>
+      <a href="/welcome" class="logo--container">
+        <div  class="logo"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;back</div>
+        {{-- <div class="hamburger--menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div> --}}
+      </a>
 
 
         <div class="social_icons_adder_heading">
@@ -235,6 +258,15 @@
             </div>            
         </form>
         @endforeach
+        {{-- ////////////////////////////////POWERED BY AVICENNA/////////////////////////////// --}}
+
+        <div class="powered--avicenna">
+          <div class="first--powered">Powered By AVICENNA ENTERPRISE SOLUTIONS</div>
+          <div class="second--powered">Get yours now at <a href="https://avicennaenterprise.com/">www.avicennaenterprise.com</a></div>
+        </div>
+
+
+        {{-- ////////////////////////////////POWERED BY AVICENNA END/////////////////////////////// --}}
 <script>
 
 

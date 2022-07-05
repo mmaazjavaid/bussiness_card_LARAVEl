@@ -15,10 +15,12 @@
             margin: 0%;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+           
         }
         body{
-            display: flex;
-            justify-content: center;
+          position: relative;
+          display: flex;
+          justify-content: center;
             width: 100%;
         }
         .profile--container{
@@ -39,7 +41,7 @@
       .profile_form .form_name{
         display: flex;
         flex-direction: column;
-        width: 93%;
+        width: 88%;
         /* margin-bottom: 10px; */
       }
       .profile_form div div{
@@ -59,7 +61,7 @@
       .save_button_container button{
         background-color: #F76830;
         color: #EBEBEB;
-        width: 95%;
+        width: 88%;
         padding-top: 7px;
         padding-bottom: 7px;
         border: none;
@@ -69,17 +71,20 @@
       }
       .logo--container{
         display: flex;
+        width: 94%;
         align-items: center;
-        width: 100%;
-        position: sticky;
-        
-        top: 0%;
-        z-index: 9;
+        margin-top: 25px;
+        color: #575a5a;
+        text-decoration: none;
         background-color: #FFFFFF;
-        margin-top: 5px;
-        justify-content:center;
-
+        justify-content: center;
       }
+      .logo{
+        display: flex;
+        width: 100%;
+        align-items: center;
+      }
+      
       
       .logo img{
         /* margin-left: 5px; */
@@ -98,6 +103,29 @@
         width: 25px;
         border-top:2px solid #F76830;
       }
+      body{
+        position: relative !important;
+        height: 100vh;
+      }
+      .powered--avicenna{
+        display: flex;
+        position: absolute;
+        bottom: 40px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+        font-size: 0.8rem;
+        /* margin-top: 40px; */
+      }
+      .first--powered{
+        font-size: 0.8rem;
+      }
+      .second--powered{
+        font-size: 0.7rem;
+      }
     </style>
 </head>
 <body>
@@ -105,7 +133,7 @@
         
 
       <a href="/welcome" class="logo--container">
-        <div class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></div>
+        <div  class="logo"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;back</div>
         {{-- <div class="hamburger--menu">
           <div></div>
           <div></div>
@@ -127,7 +155,21 @@
 
 
         {{-- ///////////////////////////////form//////////////////////////////////// --}}
+       
         
     </form>
+   {{-- ////////////////////////////////POWERED BY AVICENNA/////////////////////////////// --}}
+    <div class="powered--avicenna">
+      <div class="first--powered">Powered By AVICENNA ENTERPRISE SOLUTIONS</div>
+      <div class="second--powered">Get yours now at <a href="https://avicennaenterprise.com/">www.avicennaenterprise.com</a></div>
+    </div>
+     {{-- ////////////////////////////////POWERED BY AVICENNA END/////////////////////////////// --}}
 </body>
+
+
+
+
+
+
+
 </html>

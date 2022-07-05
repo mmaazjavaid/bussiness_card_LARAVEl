@@ -260,7 +260,7 @@
         width: 93%;
         flex-direction: column;
         margin-top: 10px;
-        margin-bottom: 30px;
+        margin-bottom: 110px;
         border-bottom: 1px solid #c9d1d3;
       }
       .custom_link_heading h4{
@@ -482,6 +482,28 @@
         display: flex;
         font-size: 0.7rem;
       }
+      body{
+        position: relative;
+      }
+      .powered--avicenna{
+        display: flex;
+        position: absolute;
+        bottom: 40px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+        font-size: 0.8rem;
+        /* margin-top: 40px; */
+      }
+      .first--powered{
+        font-size: 0.8rem;
+      }
+      .second--powered{
+        font-size: 0.7rem;
+      }
     </style>
 </head>
 <body>
@@ -621,16 +643,15 @@
           {{-- //////////////////////////////////////powered by avicenna////////////////////////////// --}}
 
 
-          <div class="powered_container">
+          {{-- ////////////////////////////////POWERED BY AVICENNA/////////////////////////////// --}}
 
-            <div class="powered_logo">
-                <img src="images/logo/Avicenna.gif" alt="" srcset="">
-            </div>
-            <div class="powered_content">
-                <p class="con_1">Powered by Avicenna</p>
-                <p class="con_2">Get yours at &nbsp; <a href="https://avicennaenterprise.com/"> www.avicennaenterprise.com</a></p>
-            </div>
+          <div class="powered--avicenna">
+            <div class="first--powered">Powered By AVICENNA ENTERPRISE SOLUTIONS</div>
+            <div class="second--powered">Get yours now at <a href="https://avicennaenterprise.com/">www.avicennaenterprise.com</a></div>
           </div>
+
+
+          {{-- ////////////////////////////////POWERED BY AVICENNA END/////////////////////////////// --}}
         
 
           {{-- //////////////////////////////////////powered by avicenna end////////////////////////////// --}}

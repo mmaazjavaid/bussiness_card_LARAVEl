@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Profile Dashboard</title>
@@ -435,7 +437,7 @@
         margin-bottom: 20px;
       }
       .qr-code{
-        margin-bottom: 40px;
+        margin-bottom: 100px;
       }
 
       .buttons_container{
@@ -475,6 +477,28 @@
         border: none;
         color: white;
         background-color: #F76830;
+      }
+      body{
+        position: relative;
+      }
+      .powered--avicenna{
+        display: flex;
+        position: absolute;
+        bottom: 40px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+        font-size: 0.8rem;
+        /* margin-top: 40px; */
+      }
+      .first--powered{
+        font-size: 0.8rem;
+      }
+      .second--powered{
+        font-size: 0.7rem;
       }
     </style>
 </head>
@@ -639,7 +663,7 @@
                $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
                $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                ?>
-              {!! QrCode::size(100)->generate($url.'/'.$userDetails->email); !!}
+              {!! QrCode::size(100)->color(247,104,48)->backgroundColor(255,255,255)->generate($url.'/'.$userDetails->email); !!}
             </div>
 
           </div>
@@ -647,8 +671,19 @@
           {{-- //////////////////////////////////////QR CODE END////////////////////////////// --}}
 
 
+          
+
 
     </div>
+    {{-- ////////////////////////////////POWERED BY AVICENNA/////////////////////////////// --}}
+
+    <div class="powered--avicenna">
+      <div class="first--powered">Powered By AVICENNA ENTERPRISE SOLUTIONS</div>
+      <div class="second--powered">Get yours now at <a href="https://avicennaenterprise.com/">www.avicennaenterprise.com</a></div>
+    </div>
+
+
+    {{-- ////////////////////////////////POWERED BY AVICENNA END/////////////////////////////// --}}
     <script>
 
 

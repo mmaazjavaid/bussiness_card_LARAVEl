@@ -19,6 +19,7 @@
         }
         body{
             display: flex;
+            
             justify-content: center;
             width: 100%;
         }
@@ -31,17 +32,18 @@
         }
         .logo--container{
         display: flex;
+        width: 93%;
         align-items: center;
-        width: 100%;
-        position: sticky;
-        
-        top: 0%;
-        z-index: 9;
+        margin-top: 20px;
+        color: #575a5a;
+        text-decoration: none;
         background-color: #FFFFFF;
-
-        margin-top: 5px;
         justify-content: center;
-
+      }
+      .logo{
+        display: flex;
+        width: 100%;
+        align-items: center;
       }
       
       .logo img{
@@ -105,7 +107,7 @@
         padding-bottom: 7px;
         border: none;
         border-radius: 5px;
-        margin-top: 30px;
+        margin-top: 20px;
         margin-bottom: 30px;
       }
       .image_section{
@@ -122,20 +124,41 @@
         color: rgb(41, 190, 41);
         cursor: pointer;
       }
+      .powered--avicenna{
+        display: flex;
+        position: absolute;
+        bottom: 40px;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        font-style: italic;
+        font-size: 0.8rem;
+        color: black;
+        /* margin-top: 40px; */
+      }
+      .first--powered{
+        font-size: 0.8rem;
+      }
+      .second--powered{
+        display: flex;
+        font-size: 0.7rem;
+      }
     </style>
 </head>
 <body>
     <form class="profile--container" action="{{route("custom_link_update")}}" method="POST" enctype="multipart/form-data">
         
 
-        <div class="logo--container">
-          <a href="/welcome" class="logo"><img src="images/logo/Avicenna.gif" alt="" srcset=""></a>
-          {{-- <div class="hamburger--menu">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div> --}}
-        </div>
+      <a href="/welcome" class="logo--container">
+        <div  class="logo"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;back</div>
+        {{-- <div class="hamburger--menu">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div> --}}
+      </a>
 
 
         <div class="custom_link_form_heading">
@@ -166,11 +189,11 @@
                   </label>
                   </div>
              </div>
-             <div class="save_button_container">
-                 <button type="submit">Save </button>
-             </div>
+             
          </div>
-
+         <div class="save_button_container">
+          <button type="submit">Save </button>
+      </div>
 
 
     </form>
