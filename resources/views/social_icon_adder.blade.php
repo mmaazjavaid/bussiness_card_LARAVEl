@@ -40,6 +40,7 @@
         align-items: center;
         margin-top: 25px;
         color: #575a5a;
+
         text-decoration: none;
         background-color: #FFFFFF;
         justify-content: center;
@@ -99,6 +100,7 @@
         display: none;
         flex-direction: column;
         height: 300px;
+        z-index: 9;
         width: 100%;
         align-items: center;
         border-top-left-radius: 25px;
@@ -182,6 +184,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+        z-index: 5;
         font-family: 'Roboto', sans-serif;
         font-style: italic;
         font-size: 0.8rem;
@@ -192,6 +195,17 @@
       }
       .second--powered{
         font-size: 0.7rem;
+      }
+      .reset_button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        background: #F76830;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 50%;
       }
     </style>
 </head>
@@ -247,13 +261,18 @@
             <div class="social--icon">
                 <img src="images/social/{{$link->link_image}}" alt="" srcset="">
             </div>
-            <div class="input_fields">
-                <input type="text" class="link_url" name="link_text" id="link_url" required placeholder="Add url here...">
+            <div style="display: flex;" class="input_fields">
+              <div style=" display:flex; justify-content:center; width:90%;">
+                <input type="search" class="link_url" name="link_text" id="link_url" required placeholder="Add url here...">
+                <button id="reset_button" type="reset" class="reset_button"><i class="fa fa-times" aria-hidden="true"></i></button>
+              </div>
+                
                 <input type="text" class="url_inputs" name="link_url" hidden>
                 <input type="text" name="link_id" value="{{$link->id}}" hidden>
                 <p class="hint">https://www.linked.com/</p>
             </div>
             <div class="save_button_container">
+              
                 <button type="submit">save</button>
             </div>            
         </form>

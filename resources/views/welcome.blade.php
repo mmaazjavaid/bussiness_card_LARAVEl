@@ -688,9 +688,7 @@
           event.preventDefault();
           }
     }
-   function hello(){
-      console.log("hello");
-    }
+   
    function scroll() {
     console.log("hello");
     
